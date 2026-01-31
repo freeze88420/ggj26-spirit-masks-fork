@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dorgfmxc27bl3"]
+[gd_scene load_steps=14 format=4 uid="uid://dorgfmxc27bl3"]
 
 [ext_resource type="Texture2D" uid="uid://2grweqj5lbw3" path="res://assets/tree_tileset.png" id="1_ihfcg"]
 [ext_resource type="TileSet" uid="uid://crvxscvdwokl6" path="res://main_stage/main_tileset.tres" id="1_rka8t"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="6_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="8_bjebc"]
+[ext_resource type="PackedScene" path="res://world_objects/sign.tscn" id="9_5rr72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
 texture = ExtResource("1_ihfcg")
@@ -82,3 +83,18 @@ position = Vector2(719, 432)
 
 [node name="FishMask" parent="." instance=ExtResource("8_bjebc")]
 position = Vector2(808, 484)
+
+[node name="Sign" parent="." instance=ExtResource("9_5rr72")]
+position = Vector2(560, 155)
+
+[node name="Sign2" parent="." instance=ExtResource("9_5rr72")]
+position = Vector2(282, 171)
+
+[node name="Sign3" parent="." instance=ExtResource("9_5rr72")]
+position = Vector2(776, 483)
+
+[node name="Sign4" parent="." instance=ExtResource("9_5rr72")]
+position = Vector2(683, 394)
+
+[node name="Sign5" parent="." instance=ExtResource("9_5rr72")]
+position = Vector2(715, 21)
