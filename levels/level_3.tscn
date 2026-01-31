@@ -16,10 +16,10 @@ tile_map_data = PackedByteArray("AAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAA
 tile_map_data = PackedByteArray("AAALAAsAFQAAAAAAAAAMAAsAFQAAAAAAAAAKAAUAFQAAAAAAAAANAAYAFQADAAAAAAAOAAYAFQAEAAAAAAAOAAcAFQAEAAEAAAAPAAYAFQAFAAAAAAAPAAcAFQAFAAEAAAAQAAMAFQAEAAAAAAAQAAQAFQAEAAEAAAARAAMAFQAFAAAAAAARAAQAFQAFAAEAAAAMAAEAFQAEAAAAAAAMAAIAFQAEAAEAAAANAAEAFQAFAAAAAAANAAIAFQAFAAEAAAAGAAAAFQAEAAAAAAAGAAEAFQAEAAEAAAAHAAAAFQAFAAAAAAAHAAEAFQAFAAEAAAAPAAQAFQAAAAAAAAAOAAIAFQAAAAAAAAAIAAEAFQAAAAAAAAAJAA8AFQADAAAAAAAHAA4AFQABAAAAAAAHAA8AFQABAAEAAAAIAA4AFQACAAAAAAAIAA8AFQACAAEAAAAMAA8AFQABAAAAAAAMABAAFQABAAEAAAANAA8AFQACAAAAAAANABAAFQACAAEAAAALABAAFQADAAAAAAA=")
 
 [node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
-position = Vector2(483, 443)
+position = Vector2(496, 432)
 
 [node name="Player" parent="WorldPlacedObjects" index="1"]
-position = Vector2(483, 443)
+position = Vector2(496, 432)
 
 [node name="LevelCompleteOverlay" type="PanelContainer" parent="." index="5"]
 visible = false
@@ -56,11 +56,14 @@ position = Vector2(236, 143)
 
 [node name="Boulder" parent="." index="10" instance=ExtResource("6_lsnkt")]
 position = Vector2(304, 238)
+collision_mask = 61
 
 [node name="Boulder2" parent="." index="11" instance=ExtResource("6_lsnkt")]
 position = Vector2(751, 497)
+collision_mask = 61
 
 [node name="Boulder3" parent="." index="12" instance=ExtResource("6_lsnkt")]
-position = Vector2(556, 455)
+position = Vector2(519, 457)
+collision_mask = 61
 
 [connection signal="pressed" from="LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]

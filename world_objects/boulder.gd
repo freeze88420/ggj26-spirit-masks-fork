@@ -45,7 +45,9 @@ func move_to(movement: Vector2) -> void:
 		if tiledata:
 			var type: String = tiledata.get_custom_data("type")
 			if type == "water":
-				tilemap.set_cell(tile_pos, source_id, Vector2i(3, 2))
+				pass
+				#tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
+				#start_drag()
 			print(tiledata.get_custom_data("type"))
 	else:
 		print("no tilemap")

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mgc6j2f85b3g" path="res://assets/rock1.png" id="2_ka5l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka5l6"]
+size = Vector2(30, 30)
 
 [node name="Boulder" type="AnimatableBody2D"]
 collision_layer = 8
