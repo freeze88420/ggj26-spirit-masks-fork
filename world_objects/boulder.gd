@@ -16,18 +16,13 @@ func _ready() -> void:
 
 # copied over from player script
 func snap_to_tiles(pos: Vector2) -> void:
-	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) + Vector2.ONE * Main.TILE_SIZE / 2
+	position += Vector2.ONE * Main.TILE_SIZE / 2
+	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2
 
 
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
 	var pos: Vector2 = global_position + movement
-	
-	var tile_pos: Vector2 = $"../TileMapLayer".local_to_map(pos)
-	var tile_data: TileData = $"../TileMapLayer".get_cell_tile_data(tile_pos)
-	
-	if tile_data == null:
-		return false
 	
 	var motion: Vector2 = pos - global_position
 	var params: PhysicsTestMotionParameters2D = PhysicsTestMotionParameters2D.new()

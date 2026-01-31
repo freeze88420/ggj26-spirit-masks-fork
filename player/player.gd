@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 
+@export var tilemap: TileMapLayer
+
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
@@ -106,12 +108,6 @@ func get_input_direction() -> Vector2:
 func can_move_to(movement: Vector2) -> bool:
 	var pos = position + movement
 	
-	var tile_pos: Vector2 = $"../TileMapLayer".local_to_map(pos)
-	var tile_data: TileData = $"../TileMapLayer".get_cell_tile_data(tile_pos)
-	
-	if tile_data == null:
-		return false
-	
 	var motion: Vector2 = pos - global_position
 	var params: PhysicsTestMotionParameters2D = PhysicsTestMotionParameters2D.new()
 	params.from = global_transform
@@ -148,4 +144,5 @@ func move_to(movement: Vector2) -> void:
 
 
 func snap_to_tiles(pos: Vector2) -> void:
-	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) + Vector2.ONE * Main.TILE_SIZE / 2
+	position += Vector2.ONE * Main.TILE_SIZE /2
+	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2
