@@ -35,10 +35,10 @@ position = Vector2(240, 240)
 position = Vector2(656, 16)
 
 [node name="FishMask" parent="." index="8" instance=ExtResource("5_5ot28")]
-position = Vector2(784, 496)
+position = Vector2(816, 496)
 
 [node name="Sign" parent="." index="9" instance=ExtResource("6_aerfg")]
-position = Vector2(784, 112)
+position = Vector2(784, 144)
 text = "Become small. Slip through tight spaces and forest gaps."
 
 [node name="Sign2" parent="." index="10" instance=ExtResource("6_aerfg")]
@@ -46,7 +46,7 @@ position = Vector2(272, 176)
 text = "Glide over deep gaps and unreachable terrain."
 
 [node name="Sign3" parent="." index="11" instance=ExtResource("6_aerfg")]
-position = Vector2(752, 496)
+position = Vector2(784, 496)
 text = "Swim freely through water."
 
 [node name="Sign4" parent="." index="12" instance=ExtResource("6_aerfg")]
@@ -55,4 +55,4 @@ text = "Gain strength: Push and move heavy boulders.
 "
 
 [node name="MouseMask" parent="." index="13" instance=ExtResource("7_nmsli")]
-position = Vector2(816, 112)
+position = Vector2(816, 144)
