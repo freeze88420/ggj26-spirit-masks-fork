@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2gl0denbhq43"]
+[gd_scene load_steps=3 format=3 uid="uid://2gl0denbhq43"]
 
 [ext_resource type="Script" uid="uid://cxb0ddr75xt05" path="res://inventory.gd" id="1_pohso"]
+[ext_resource type="Texture2D" uid="uid://chgn3k8f3vm05" path="res://cross.png" id="2_psafj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,8 +21,10 @@ offset_bottom = 40.0
 
 [node name="FirstSlot" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("2_psafj")
 stretch_mode = 2
 
 [node name="SecondSlot" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("2_psafj")
 stretch_mode = 2

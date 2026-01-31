@@ -4,7 +4,7 @@ var restart_timer: float
 var exit_timer: float
 var complete: bool = false
 
-@onready var inventory: Control = $Inventory
+@onready var inventory: Control = $FollowingCamera/Inventory
 @onready var player: Player = $WorldPlacedObjects/Player
 
 func _ready():

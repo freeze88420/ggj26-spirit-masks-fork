@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://brykx73avx8aa" path="res://levels/level_base.tscn" id="1_2v8s1"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="2_t3t4g"]
-[ext_resource type="PackedScene" path="res://masks/mouse_mask.tscn" id="3_j4s08"]
+[ext_resource type="PackedScene" uid="uid://5uft2nu2i33c" path="res://masks/mouse_mask.tscn" id="3_j4s08"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="4_gpqau"]
-[ext_resource type="PackedScene" uid="uid://bkbhd33x46nf8" path="res://world_objects/goal.tscn" id="5_t3t4g"]
+[ext_resource type="PackedScene" path="res://world_objects/goal.tscn" id="5_t3t4g"]
 
 [node name="level_2_new" instance=ExtResource("1_2v8s1")]
 
@@ -48,6 +48,6 @@ position = Vector2(848, 304)
 position = Vector2(656, 720)
 
 [node name="Goal" parent="WorldPlacedObjects" index="8" instance=ExtResource("5_t3t4g")]
-position = Vector2(366, 409)
+position = Vector2(368, 400)
 
 [connection signal="completed" from="WorldPlacedObjects/Goal" to="." method="_on_goal_completed"]

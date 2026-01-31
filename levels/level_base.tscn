@@ -19,8 +19,6 @@
 texture_filter = 1
 script = ExtResource("2_da5si")
 
-[node name="Inventory" parent="." instance=ExtResource("4_da5si")]
-
 [node name="Ground" type="TileMapLayer" parent="."]
 texture_filter = 1
 tile_set = ExtResource("1_hk6b7")
@@ -32,6 +30,12 @@ tile_set = ExtResource("1_hk6b7")
 [node name="FollowingCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_ep22m")]
 position = Vector2(480, 270)
 target = NodePath("../WorldPlacedObjects/Player")
+
+[node name="Inventory" parent="FollowingCamera" instance=ExtResource("4_da5si")]
+offset_left = -480.0
+offset_top = -270.0
+offset_right = -480.0
+offset_bottom = -270.0
 
 [node name="CameraBounds" type="Node2D" parent="."]
 

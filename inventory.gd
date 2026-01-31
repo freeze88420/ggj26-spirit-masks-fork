@@ -36,6 +36,7 @@ func drop_current():
 	if second_slot.texture == null:
 		first_slot.texture = null
 	else :
+		
 		first_slot.texture = second_slot.texture
 		second_slot.texture = null
 	
