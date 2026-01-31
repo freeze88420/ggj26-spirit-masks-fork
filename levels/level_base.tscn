@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpwjhx66rd4l6" path="res://player/player.tscn" id="3_ts4ud"]
 [ext_resource type="PackedScene" uid="uid://2gl0denbhq43" path="res://inventory.tscn" id="4_da5si"]
 [ext_resource type="Script" uid="uid://b8eyf2rx3ggpb" path="res://levels/level_base_tool.gd" id="5_ep22m"]
-[ext_resource type="PackedScene" path="res://player/FollowingCamera.tscn" id="6_ep22m"]
+[ext_resource type="PackedScene" uid="uid://c483kltkl1meb" path="res://player/FollowingCamera.tscn" id="6_ep22m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ts4ud"]
 
@@ -36,6 +36,29 @@ offset_left = -480.0
 offset_top = -270.0
 offset_right = -480.0
 offset_bottom = -270.0
+
+[node name="LevelCompleteOverlay" type="PanelContainer" parent="FollowingCamera"]
+visible = false
+z_index = 300
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="CenterContainer" type="CenterContainer" parent="FollowingCamera/LevelCompleteOverlay"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FollowingCamera/LevelCompleteOverlay/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FollowingCamera/LevelCompleteOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL COMPLETE!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="FollowingCamera/LevelCompleteOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Level Selection (ESC)"
 
 [node name="CameraBounds" type="Node2D" parent="."]
 
@@ -82,25 +105,4 @@ position = Vector2(16, 16)
 [node name="Player" parent="WorldPlacedObjects" instance=ExtResource("3_ts4ud")]
 position = Vector2(16, 16)
 
-[node name="LevelCompleteOverlay" type="PanelContainer" parent="."]
-visible = false
-z_index = 300
-offset_right = 960.0
-offset_bottom = 540.0
-
-[node name="CenterContainer" type="CenterContainer" parent="LevelCompleteOverlay"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteOverlay/CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="LevelCompleteOverlay/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "LEVEL COMPLETE!"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LevelCompleteOverlay/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Back to Level Selection (ESC)"
-
-[connection signal="pressed" from="LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]
+[connection signal="pressed" from="FollowingCamera/LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]

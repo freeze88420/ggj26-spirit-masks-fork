@@ -1,9 +1,5 @@
 extends Node
 
-#const LEVELS: Dictionary[String, String] = {
-#	"Level 1": "res://level_1.tscn",
-#	"Prototype Level": "res://main_stage/main_stage.tscn"
-#}
 
 @export var levels: Dictionary[String, PackedScene]
 

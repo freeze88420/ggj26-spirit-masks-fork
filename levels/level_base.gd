@@ -5,6 +5,7 @@ var exit_timer: float
 var complete: bool = false
 
 @onready var inventory: Control = $FollowingCamera/Inventory
+@onready var level_complete_overlay: Control = $FollowingCamera/LevelCompleteOverlay
 @onready var player: Player = $WorldPlacedObjects/Player
 
 func _ready():
@@ -37,8 +38,8 @@ func _process(delta: float) -> void:
 
 func _on_goal_completed() -> void:
 	complete = true
-	$WorldPlacedObjects/Player.enabled = false
-	$LevelCompleteOverlay.show()
+	player.enabled = false
+	level_complete_overlay.show()
 
 func exit_to_level_selector() -> void:
 	get_tree().change_scene_to_packed(load("res://level_selector/level_selector.tscn"))
