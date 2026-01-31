@@ -1,4 +1,3 @@
-@abstract
 class_name Mask
 extends Node2D
 ## Base class for masks you can pick up
@@ -15,9 +14,9 @@ func deactivate_ability() -> void:
 	_deactivate_ability()
 
 
-@abstract
-func _activate_ability()
+func _activate_ability():
+	pass
 
 
-@abstract
-func _deactivate_ability()
+func _deactivate_ability():
+	pass

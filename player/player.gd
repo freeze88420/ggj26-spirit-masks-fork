@@ -46,6 +46,7 @@ func _can_pickup_mask() -> Mask:
 	
 	for body in bodies:
 		if body is Mask:
+			print('found mask')
 			return body
 	return null
 
