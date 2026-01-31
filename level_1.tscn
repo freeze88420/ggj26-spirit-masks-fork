@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://cv4cr6hna33xn"]
+[gd_scene load_steps=9 format=4 uid="uid://fbvn0flxesik"]
 
 [ext_resource type="TileSet" uid="uid://2355nqo8mm42" path="res://main_stage/main_tileset.tres" id="1_rka8t"]
-[ext_resource type="TileSet" uid="uid://2cc20tubihxt" path="res://assets/obstacles_tileset.tres" id="2_bjebc"]
+[ext_resource type="TileSet" path="res://assets/obstacles_tileset.tres" id="2_bjebc"]
 [ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="5_5hph3"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="6_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="7_j7kpp"]

@@ -22,10 +22,6 @@ var tween: Tween
 var can_push_boulders: bool = false
 
 
-func _ready() -> void:
-	snap_to_tiles(position)
-
-
 func _process(delta: float) -> void:
 	if not is_moving:
 		var input_direction: Vector2 = get_input_direction()
@@ -90,7 +86,7 @@ func _can_drop_mask() -> bool:
 # drop your mask onto the world
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
-	current_mask.snap_to_tiles(position - Vector2.ONE * Main.TILE_SIZE / 2)
+	current_mask.position = Main.snap_to_tiles(position)
 	current_mask.deactivate_ability()
 	get_parent().add_child(current_mask)
 	
@@ -178,8 +174,3 @@ func move_to(movement: Vector2) -> void:
 	tween.set_trans(tween_transition)
 	tween.set_ease(tween_ease)
 	tween.finished.connect(func(): is_moving = false)
-
-
-func snap_to_tiles(pos: Vector2) -> void:
-	position += Vector2.ONE * Main.TILE_SIZE /2
-	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2

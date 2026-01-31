@@ -10,16 +10,6 @@ var is_moving: bool = false
 var tween: Tween
 
 
-func _ready() -> void:
-	snap_to_tiles(position)
-
-
-# copied over from player script
-func snap_to_tiles(pos: Vector2) -> void:
-	position += Vector2.ONE * Main.TILE_SIZE / 2
-	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2
-
-
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
 	var pos: Vector2 = global_position + movement

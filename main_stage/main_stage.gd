@@ -10,6 +10,7 @@ const COLLISION_LAYER_WATER: int = 3
 const COLLISION_LAYER_BOULDER: int = 4
 const COLLISION_LAYER_CHASM: int = 5
 const COLLISION_LAYER_HEDGE: int = 6
+
 const RESTART_DELAY: float = 0.4 # seconds
 
 var restart_timer: float
@@ -33,3 +34,8 @@ func _process(delta: float) -> void:
 func new_game():
 	$Player.snap_to_tiles($StartPosition.position)
 	$Player.show()
+
+
+static func snap_to_tiles(pos: Vector2) -> Vector2:
+	pos += Vector2.ONE * Main.TILE_SIZE /2
+	return pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2
