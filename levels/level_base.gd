@@ -5,8 +5,6 @@ var restart_timer: float
 var exit_timer: float
 var complete: bool = false
 
-signal level_completed
-
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart_level"):
 		restart_timer += delta
@@ -28,7 +26,7 @@ func _process(delta: float) -> void:
 		exit_to_level_selector()
 
 
-func _on_level_completed() -> void:
+func _on_goal_completed() -> void:
 	complete = true
 	$WorldPlacedObjects/Player.enabled = false
 	$LevelCompleteOverlay.show()
