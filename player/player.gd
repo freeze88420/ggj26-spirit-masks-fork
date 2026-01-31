@@ -158,6 +158,11 @@ func get_input_direction() -> Vector2:
 func can_move_to(movement: Vector2) -> bool:
 	var pos = position + movement
 	
+	if tilemap != null:
+		var tile_pos: Vector2i = tilemap.local_to_map(pos)
+		if tilemap.get_cell_tile_data(tile_pos) == null:
+			return false
+
 	var motion: Vector2 = pos - global_position
 	var params: PhysicsTestMotionParameters2D = PhysicsTestMotionParameters2D.new()
 	params.from = global_transform
