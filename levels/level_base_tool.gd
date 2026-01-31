@@ -14,7 +14,7 @@ func _ready():
 
 
 func _snap_elements_to_grid():
-	for child in get_parent().get_children():
+	for child in get_children():
 		if child is TileMapLayer:
 			continue
 		child.position = Main.snap_to_tiles(child.position)

@@ -13,26 +13,35 @@ tile_map_data = PackedByteArray("AAAAAAcAAAADAAIAAAAAAAgAAAADAAIAAAABAAcAAAADAAI
 [node name="TreesAndStuff" parent="." index="1"]
 tile_map_data = PackedByteArray("AAARABcABQABAAAAAAARABgABQABAAEAAAASABcABQACAAAAAAASABgABQACAAEAAAATABcABQABAAAAAAATABgABQABAAEAAAAUABcABQACAAAAAAAUABgABQACAAEAAAAVABcABQABAAAAAAAVABgABQABAAEAAAAWABcABQACAAAAAAAWABgABQACAAEAAAANABcABQAEAAAAAAANABgABQAEAAEAAAAOABcABQAFAAAAAAAOABgABQAFAAEAAAAPABcABQAEAAAAAAAPABgABQAEAAEAAAAQABcABQAFAAAAAAAQABgABQAFAAEAAAAQABUABQAEAAAAAAAQABYABQAEAAEAAAARABUABQAFAAAAAAARABYABQAFAAEAAAALABgABQAEAAAAAAALABkABQAEAAEAAAAMABgABQAFAAAAAAAMABkABQAFAAEAAAAHABgABQABAAAAAAAHABkABQABAAEAAAAIABgABQACAAAAAAAIABkABQACAAEAAAAJABgABQABAAAAAAAJABkABQABAAEAAAAKABgABQACAAAAAAAKABkABQACAAEAAAAIABoABQABAAAAAAAIABsABQABAAEAAAAJABoABQACAAAAAAAJABsABQACAAEAAAAIABcABQAAAAAAAAAJABcABQADAAAAAAAMABcABQADAAAAAAAPABYABQAAAAAAAAAPABkABQAAAAAAAAANABoABQABAAEAAAANABkABQABAAAAAAAOABkABQACAAAAAAAOABoABQACAAEAAAASABkABQADAAAAAAAVABkABQAAAAAAAAA=")
 
-[node name="PlayerSpawnPoint" parent="." index="2"]
-position = Vector2(316, 289)
+[node name="LeftBound" parent="CameraBounds" index="0"]
+position = Vector2(9, 453)
 
-[node name="Player" parent="." index="3"]
-position = Vector2(316, 289)
+[node name="RightBound" parent="CameraBounds" index="1"]
+position = Vector2(1180, 322)
 
-[node name="Boulder" parent="." index="4" instance=ExtResource("2_t3t4g")]
+[node name="DownBound" parent="CameraBounds" index="2"]
+position = Vector2(509, 893)
+
+[node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
+position = Vector2(336, 240)
+
+[node name="Player" parent="WorldPlacedObjects" index="1"]
+position = Vector2(336, 240)
+
+[node name="Boulder" parent="WorldPlacedObjects" index="2" instance=ExtResource("2_t3t4g")]
 position = Vector2(816, 816)
 
-[node name="Boulder2" parent="." index="5" instance=ExtResource("2_t3t4g")]
+[node name="Boulder2" parent="WorldPlacedObjects" index="3" instance=ExtResource("2_t3t4g")]
 position = Vector2(816, 784)
 
-[node name="Boulder3" parent="." index="6" instance=ExtResource("2_t3t4g")]
+[node name="Boulder3" parent="WorldPlacedObjects" index="4" instance=ExtResource("2_t3t4g")]
 position = Vector2(784, 752)
 
-[node name="Boulder4" parent="." index="7" instance=ExtResource("2_t3t4g")]
+[node name="Boulder4" parent="WorldPlacedObjects" index="5" instance=ExtResource("2_t3t4g")]
 position = Vector2(752, 752)
 
-[node name="MouseMask" parent="." index="8" instance=ExtResource("3_j4s08")]
+[node name="MouseMask" parent="WorldPlacedObjects" index="6" instance=ExtResource("3_j4s08")]
 position = Vector2(848, 304)
 
-[node name="BearMask" parent="." index="9" instance=ExtResource("4_gpqau")]
+[node name="BearMask" parent="WorldPlacedObjects" index="7" instance=ExtResource("4_gpqau")]
 position = Vector2(656, 720)

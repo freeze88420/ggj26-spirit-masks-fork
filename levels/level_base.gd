@@ -27,9 +27,10 @@ func _process(delta: float) -> void:
 	if exit_timer > Main.EXIT_DELAY:
 		exit_to_level_selector()
 
+
 func _on_level_completed() -> void:
 	complete = true
-	$Player.enabled = false
+	$WorldPlacedObjects/Player.enabled = false
 	$LevelCompleteOverlay.show()
 
 

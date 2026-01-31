@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c483kltkl1meb"]
+
+[ext_resource type="Script" uid="uid://fmv87j0vu1xk" path="res://player/following_camera.gd" id="1_638wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_638wa"]
+size = Vector2(960, 540)
+
+[node name="FollowingCamera" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_638wa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_638wa")
