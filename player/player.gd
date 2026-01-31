@@ -106,6 +106,7 @@ func _drop_current_mask() -> void:
 		mask_slot2.remove_child(inventory_mask)
 		current_mask = inventory_mask
 		current_mask.show()
+		current_mask.activate_ability()
 		mask_slot.add_child(current_mask)
 		inventory_mask = null
 		
