@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqlhkjvadfgnh"]
+
+[ext_resource type="Script" uid="uid://cededyh11jcb" path="res://main_stage/menu.gd" id="1_ggjwi"]
+[ext_resource type="PackedScene" uid="uid://7ei6xbcgtkeh" path="res://main_stage/main_stage.tscn" id="2_df0d0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8ow4"]
+font_size = 56
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_ggjwi")
+first_level = ExtResource("2_df0d0")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 962.0
+offset_bottom = 539.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mask Game"
+label_settings = SubResource("LabelSettings_p8ow4")
+
+[node name="Smalltext" type="Label" parent="UI/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "By Avi, Lauren, Marco, Pascal - for GGJ26"
+
+[node name="HSeparator" type="HSeparator" parent="UI/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StartLevel" type="Button" parent="UI/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="button_down" from="UI/CenterContainer/VBoxContainer/StartLevel" to="." method="_on_start_level_button_down"]
