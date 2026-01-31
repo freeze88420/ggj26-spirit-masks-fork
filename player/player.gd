@@ -42,13 +42,11 @@ func get_input_direction() -> Vector2:
 func can_move_to(pos: Vector2) -> bool:
 	var tile_pos: Vector2 = $"../TileMapLayer".local_to_map(pos)
 	var tile_data: TileData = $"../TileMapLayer".get_cell_tile_data(tile_pos)
-	return tile_data != null
 	
 	if tile_data == null:
 		return true
-	#	
-	##return !tile_data.get_collision_polygons_count(0) > 0
-	#return tile_data != null
+	
+	return !tile_data.get_collision_polygons_count(0) > 0
 
 func move_to(target_pos: Vector2) -> void:
 	is_moving = true
