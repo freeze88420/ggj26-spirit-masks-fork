@@ -58,6 +58,10 @@ mask_interact={
 
 2d_physics/layer_1="wall"
 2d_physics/layer_2="mask"
+2d_physics/layer_3="water"
+2d_physics/layer_4="boulder"
+2d_physics/layer_5="chasm"
+2d_physics/layer_6="hedge"
 
 [rendering]
 
