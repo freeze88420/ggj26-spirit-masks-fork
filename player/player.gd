@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 
 
 func _can_pickup_mask() -> Mask:
+	# check if you are standing on a mask
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
 	for body in bodies:
 		if body is Mask:
@@ -56,6 +57,7 @@ func _pickup_mask(mask: Mask) -> void:
 
 
 func _can_drop_mask() -> bool:
+	# can't drop your mask if you are standing on another mask
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
 	for body in bodies:
 		if body is Mask and body != current_mask:
@@ -63,6 +65,7 @@ func _can_drop_mask() -> bool:
 	return true
 
 
+# drop your mask onto the world
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
 	current_mask.position = position
