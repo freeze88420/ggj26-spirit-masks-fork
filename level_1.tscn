@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dorgfmxc27bl3"]
+[gd_scene load_steps=15 format=4 uid="uid://dorgfmxc27bl3"]
 
 [ext_resource type="Texture2D" uid="uid://2grweqj5lbw3" path="res://assets/tree_tileset.png" id="1_ihfcg"]
 [ext_resource type="TileSet" uid="uid://crvxscvdwokl6" path="res://main_stage/main_tileset.tres" id="1_rka8t"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="8_bjebc"]
 [ext_resource type="PackedScene" path="res://world_objects/sign.tscn" id="9_5rr72"]
+[ext_resource type="PackedScene" path="res://masks/mouse_mask.tscn" id="10_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
 texture = ExtResource("1_ihfcg")
@@ -139,3 +140,6 @@ text = "Swim freely through water."
 position = Vector2(717, 22)
 text = "Gain strength: Push and move heavy boulders.
 "
+
+[node name="MouseMask" parent="." instance=ExtResource("10_gyffv")]
+position = Vector2(834, 114)
