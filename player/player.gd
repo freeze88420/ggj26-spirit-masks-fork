@@ -31,9 +31,12 @@ func _process(delta: float) -> void:
 				move_to(next_position)
 	
 	if Input.is_action_just_pressed("mask_interact"):
-		var mask = _can_pickup_mask()
-		if mask:
-			_pickup_mask(mask)
+		if current_mask:
+			_drop_current_mask()
+		else:
+			var mask = _can_pickup_mask()
+			if mask:
+				_pickup_mask(mask)
 
 
 func _can_pickup_mask() -> Mask:
@@ -47,8 +50,15 @@ func _can_pickup_mask() -> Mask:
 func _pickup_mask(mask: Mask) -> void:
 	mask.get_parent().remove_child(mask)
 	mask.position = Vector2.ZERO
-	$MaskSlot.add_child(mask)
+	mask_slot.add_child(mask)
 	current_mask = mask
+
+
+func _drop_current_mask() -> void:
+	mask_slot.remove_child(current_mask)
+	current_mask.position = position
+	get_parent().add_child(current_mask)
+	current_mask = null
 
 
 func get_input_direction() -> Vector2:
