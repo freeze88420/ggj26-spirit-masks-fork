@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://br7thvxwt57wb"]
+[gd_scene load_steps=6 format=3 uid="uid://br7thvxwt57wb"]
 
 [ext_resource type="Script" uid="uid://eesyi4n3dig3" path="res://level_selector/level_selector.gd" id="1_8q467"]
-[ext_resource type="PackedScene" uid="uid://c8ut4na14lghy" path="res://levels/prototype_level.tscn" id="2_bqtf1"]
+[ext_resource type="PackedScene" uid="uid://d3d6d8nujsjnk" path="res://levels/prototype_level.tscn" id="2_bqtf1"]
 [ext_resource type="PackedScene" uid="uid://b8op5fop570di" path="res://levels/level_1.tscn" id="3_8rcln"]
 [ext_resource type="PackedScene" uid="uid://ra5ae0xux7fj" path="res://levels/level_2_new.tscn" id="4_28gom"]
+[ext_resource type="PackedScene" uid="uid://t0yhe3w8b53i" path="res://levels/level_3.tscn" id="5_28gom"]
 
 [node name="LevelSelector" type="Node"]
 script = ExtResource("1_8q467")
 levels = Dictionary[String, PackedScene]({
 "Level 1": ExtResource("3_8rcln"),
 "Level 2": ExtResource("4_28gom"),
+"Level 3": ExtResource("5_28gom"),
 "Prototype": ExtResource("2_bqtf1")
 })
 
