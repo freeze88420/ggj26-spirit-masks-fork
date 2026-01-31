@@ -13,28 +13,6 @@ const COLLISION_LAYER_HEDGE: int = 6
 
 const RESTART_DELAY: float = 0.4 # seconds
 
-var restart_timer: float
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	new_game()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("restart_level"):
-		restart_timer += delta
-	else:
-		restart_timer = 0.0
-		
-	if restart_timer > RESTART_DELAY:
-		get_tree().reload_current_scene()
-
-
-func new_game():
-	$Player.snap_to_tiles($StartPosition.position)
-	$Player.show()
-
 
 static func snap_to_tiles(pos: Vector2) -> Vector2:
 	pos += Vector2.ONE * Main.TILE_SIZE /2

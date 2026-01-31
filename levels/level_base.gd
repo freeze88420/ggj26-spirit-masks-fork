@@ -1,16 +1,13 @@
-@tool
 extends Node2D
 
 
-@export_tool_button("Snap elements to grid", "Callable") var snap_action = _snap_elements_to_grid
+var restart_timer: float
 
-
-func _ready():
-	_snap_elements_to_grid()
-
-
-func _snap_elements_to_grid():
-	for child in get_children():
-		if child is TileMapLayer:
-			continue
-		child.position = Main.snap_to_tiles(child.position)
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("restart_level"):
+		restart_timer += delta
+	else:
+		restart_timer = 0.0
+		
+	if restart_timer > Main.RESTART_DELAY:
+		get_tree().reload_current_scene()
