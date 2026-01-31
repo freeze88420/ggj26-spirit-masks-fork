@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://7ei6xbcgtkeh"]
+[gd_scene load_steps=8 format=4 uid="uid://7ei6xbcgtkeh"]
 
 [ext_resource type="Script" uid="uid://o0oftsgq6vwc" path="res://main_stage/main_stage.gd" id="1_qu0qn"]
 [ext_resource type="PackedScene" uid="uid://cpwjhx66rd4l6" path="res://player/player.tscn" id="2_clowq"]
 [ext_resource type="Texture2D" uid="uid://b2uxr5qf5psqr" path="res://colormap.png" id="4_clowq"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="4_r6mis"]
+[ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="5_r6mis"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6mis"]
 texture = ExtResource("4_clowq")
@@ -54,3 +55,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "WASD to move
 SPACE to pickup"
+
+[node name="EagleMask" parent="." instance=ExtResource("5_r6mis")]
+position = Vector2(238, 224)
