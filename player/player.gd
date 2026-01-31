@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var tile_size: int = 32
+
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		
 		if input_direction != Vector2.ZERO:
 			$Body.set_rotation(Vector2.RIGHT.angle_to(input_direction))
-			var next_position: Vector2 = position + input_direction * tile_size
+			var next_position: Vector2 = position + input_direction * Main.TILE_SIZE
 			
 			if can_move_to(next_position):
 				move_to(next_position)
@@ -46,7 +46,6 @@ func _can_pickup_mask() -> Mask:
 	
 	for body in bodies:
 		if body is Mask:
-			print('found mask')
 			return body
 	return null
 
@@ -72,7 +71,7 @@ func _can_drop_mask() -> bool:
 # drop your mask onto the world
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
-	current_mask.snap_to_tiles(position - Vector2.ONE * tile_size / 2)
+	current_mask.snap_to_tiles(position - Vector2.ONE * Main.TILE_SIZE / 2)
 	current_mask.deactivate_ability()
 	get_parent().add_child(current_mask)
 	
@@ -136,4 +135,4 @@ func move_to(target_pos: Vector2) -> void:
 
 
 func snap_to_tiles(pos: Vector2) -> void:
-	position = pos.snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size / 2
+	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) + Vector2.ONE * Main.TILE_SIZE / 2

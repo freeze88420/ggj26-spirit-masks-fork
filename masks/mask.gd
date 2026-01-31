@@ -3,9 +3,11 @@ extends Node2D
 ## Base class for masks you can pick up
 
 
-@export var tile_size: int = 32
-
 var player: Player
+
+
+func _ready() -> void:
+	snap_to_tiles(position)
 
 
 func activate_ability() -> void:
@@ -24,9 +26,5 @@ func _deactivate_ability():
 	pass
 
 
-func _ready() -> void:
-	snap_to_tiles(position)
-
-
 func snap_to_tiles(pos: Vector2) -> void:
-	position = pos.snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size / 2
+	position = pos.snapped(Vector2.ONE * Main.TILE_SIZE) + Vector2.ONE * Main.TILE_SIZE / 2
