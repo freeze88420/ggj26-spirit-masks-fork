@@ -20,3 +20,6 @@ func _activate_ability():
 
 func _deactivate_ability():
 	pass
+	
+func get_texture() -> Texture2D:
+	return $Sprite2D.texture

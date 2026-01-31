@@ -9,6 +9,11 @@ extends CharacterBody2D
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
 
 @export var enabled: bool = true
+signal current_mask_changed(mask: Mask)
+signal inventory_mask_changed(mask: Mask)
+signal inventory_swapped()
+signal inventory_mask_dropped()
+signal current_mask_dropped()
 
 @onready var mask_slot: Node2D = $MaskSlot
 var current_mask: Mask
@@ -60,6 +65,11 @@ func _can_pickup_mask() -> Mask:
 			return body
 	return null
 
+func get_current_mask():
+	return current_mask
+
+func get_inventory_mask():
+	return inventory_mask
 
 func _pickup_mask(mask: Mask) -> void:
 	mask.get_parent().remove_child(mask)
@@ -69,9 +79,12 @@ func _pickup_mask(mask: Mask) -> void:
 	if current_mask == null:
 		current_mask = mask
 		mask_slot.add_child(mask)
+		print("Should emit a signal")
+		emit_signal("current_mask_changed", current_mask)
 	else:
 		inventory_mask = mask
 		mask_slot2.add_child(mask)
+		emit_signal("inventory_mask_changed", inventory_mask)
 		swap_current_mask()
 
 
@@ -106,6 +119,9 @@ func _drop_current_mask() -> void:
 		current_mask.activate_ability()
 		mask_slot.add_child(current_mask)
 		inventory_mask = null
+		emit_signal("inventory_mask_dropped")
+	else:
+		emit_signal("current_mask_dropped")
 		
 
 # swap the current mask with your inventory
@@ -121,6 +137,7 @@ func swap_current_mask() -> void:
 	inventory_mask.deactivate_ability()
 	mask_slot.add_child(current_mask)
 	mask_slot2.add_child(inventory_mask)
+	emit_signal("inventory_swapped")
 
 func get_input_direction() -> Vector2:
 	if enabled:

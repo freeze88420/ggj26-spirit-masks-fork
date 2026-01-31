@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://2gl0denbhq43"]
+
+[ext_resource type="Script" uid="uid://cxb0ddr75xt05" path="res://inventory.gd" id="1_pohso"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pohso")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="FirstSlot" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="SecondSlot" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+stretch_mode = 2
