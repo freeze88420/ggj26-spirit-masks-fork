@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dja35qex5xp04"]
+
+[ext_resource type="Script" uid="uid://bof7alur2wlny" path="res://world_objects/boulder.gd" id="1_3i207"]
+[ext_resource type="Texture2D" uid="uid://mgc6j2f85b3g" path="res://assets/rock1.png" id="2_ka5l6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka5l6"]
+size = Vector2(30, 30)
+
+[node name="Boulder" type="AnimatableBody2D"]
+collision_layer = 8
+collision_mask = 61
+script = ExtResource("1_3i207")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ka5l6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ka5l6")

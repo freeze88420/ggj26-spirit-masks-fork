@@ -25,10 +25,9 @@ func _process(delta: float) -> void:
 		
 		if input_direction != Vector2.ZERO:
 			$Body.set_rotation(Vector2.RIGHT.angle_to(input_direction))
-			var next_position: Vector2 = position + input_direction * Main.TILE_SIZE
 			
-			if can_move_to(next_position):
-				move_to(next_position)
+			if can_move_to(input_direction * Main.TILE_SIZE):
+				move_to(input_direction * Main.TILE_SIZE)
 	
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
@@ -102,7 +101,9 @@ func get_input_direction() -> Vector2:
 	return Vector2.ZERO
 
 
-func can_move_to(pos: Vector2) -> bool:
+func can_move_to(movement: Vector2) -> bool:
+	var pos = position + movement
+	
 	var tile_pos: Vector2 = $"../TileMapLayer".local_to_map(pos)
 	var tile_data: TileData = $"../TileMapLayer".get_cell_tile_data(tile_pos)
 	
@@ -116,11 +117,20 @@ func can_move_to(pos: Vector2) -> bool:
 	
 	var result: PhysicsTestMotionResult2D = PhysicsTestMotionResult2D.new()
 	var collided: bool = PhysicsServer2D.body_test_motion(get_rid(), params, result)
+	
+	var collider = result.get_collider()
+	if collider is Boulder:
+		var boulder: Boulder = collider
+		if boulder.can_move_to(movement) and not boulder.is_moving:
+			boulder.move_to(movement)
+			return true
 
 	return !collided
 
 
-func move_to(target_pos: Vector2) -> void:
+func move_to(movement: Vector2) -> void:
+	var target_pos = position + movement
+	
 	is_moving = true
 	
 	if tween:
