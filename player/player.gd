@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
-#@onready var tilemap: TileMap = get_node
 
 
 @onready var mask_slot: Node2D = $MaskSlot
@@ -94,7 +93,15 @@ func can_move_to(pos: Vector2) -> bool:
 	if tile_data == null:
 		return false
 	
-	return !tile_data.get_collision_polygons_count(0) > 0
+	var motion: Vector2 = pos - global_position
+	var params: PhysicsTestMotionParameters2D = PhysicsTestMotionParameters2D.new()
+	params.from = global_transform
+	params.motion = motion
+	
+	var result: PhysicsTestMotionResult2D = PhysicsTestMotionResult2D.new()
+	var collided: bool = PhysicsServer2D.body_test_motion(get_rid(), params, result)
+
+	return !collided
 
 
 func move_to(target_pos: Vector2) -> void:
