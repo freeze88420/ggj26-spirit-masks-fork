@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpwjhx66rd4l6" path="res://player/player.tscn" id="3_ts4ud"]
 [ext_resource type="PackedScene" uid="uid://2gl0denbhq43" path="res://inventory.tscn" id="4_da5si"]
 [ext_resource type="Script" uid="uid://b8eyf2rx3ggpb" path="res://levels/level_base_tool.gd" id="5_ep22m"]
-[ext_resource type="PackedScene" uid="uid://c483kltkl1meb" path="res://player/FollowingCamera.tscn" id="6_ep22m"]
+[ext_resource type="PackedScene" path="res://player/FollowingCamera.tscn" id="6_ep22m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ts4ud"]
 

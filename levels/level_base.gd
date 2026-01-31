@@ -4,12 +4,10 @@ var restart_timer: float
 var exit_timer: float
 var complete: bool = false
 
-@export_tool_button("Snap elements to grid", "Callable") var snap_action = _snap_elements_to_grid
 @onready var inventory: Control = $Inventory
-@onready var player: Player = $Player
+@onready var player: Player = $WorldPlacedObjects/Player
 
 func _ready():
-	_snap_elements_to_grid()
 	player.current_mask_changed.connect(inventory.set_current_mask)
 	player.inventory_mask_changed.connect(inventory.set_inventory_mask)
 	player.inventory_swapped.connect(inventory.switch_slots)

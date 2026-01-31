@@ -33,7 +33,11 @@ func switch_slots():
 	second_slot.texture = temp_tex
 
 func drop_current():
-	first_slot.texture = null
+	if second_slot.texture == null:
+		first_slot.texture = null
+	else :
+		first_slot.texture = second_slot.texture
+		second_slot.texture = null
 	
 func drop_inventory():
 	second_slot.texture = null

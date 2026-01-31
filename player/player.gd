@@ -112,6 +112,7 @@ func _drop_current_mask() -> void:
 	position.x -= 100
 	
 	current_mask = null
+	emit_signal("current_mask_dropped")
 	if inventory_mask:
 		mask_slot2.remove_child(inventory_mask)
 		current_mask = inventory_mask
@@ -119,9 +120,6 @@ func _drop_current_mask() -> void:
 		current_mask.activate_ability()
 		mask_slot.add_child(current_mask)
 		inventory_mask = null
-		emit_signal("inventory_mask_dropped")
-	else:
-		emit_signal("current_mask_dropped")
 		
 
 # swap the current mask with your inventory
