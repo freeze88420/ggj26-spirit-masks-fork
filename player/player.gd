@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var tile_size: int = 16
+@export var tile_size: int = 32
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
@@ -16,7 +16,7 @@ var tween: Tween
 
 
 func _ready() -> void:
-	pass
+	snap_to_tiles(position)
 
 
 func _process(delta: float) -> void:
@@ -72,7 +72,7 @@ func _can_drop_mask() -> bool:
 # drop your mask onto the world
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
-	current_mask.position = position
+	current_mask.snap_to_tiles(position)
 	current_mask.deactivate_ability()
 	get_parent().add_child(current_mask)
 	
@@ -133,3 +133,7 @@ func move_to(target_pos: Vector2) -> void:
 	tween.set_trans(tween_transition)
 	tween.set_ease(tween_ease)
 	tween.finished.connect(func(): is_moving = false)
+
+
+func snap_to_tiles(pos: Vector2) -> void:
+	position = pos.snapped(Vector2.ONE * tile_size) + Vector2.ONE * tile_size / 2

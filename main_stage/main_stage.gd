@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func new_game():
-	$Player.set_position($StartPosition.position)
+	$Player.snap_to_tiles($StartPosition.position)
 	$Player.show()
