@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var tilemap: TileMapLayer
 
-@export var move_duration: float = 0.15 # seconds
+@export var move_duration: float = 0.25 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
 
@@ -20,6 +20,8 @@ var current_mask: Mask
 
 @onready var mask_slot2: Node2D = $MaskSlot2
 var inventory_mask: Mask
+var is_dragging_boulder: bool = false
+var dragged_boulder: Boulder
 
 
 var is_moving: bool = false
@@ -41,7 +43,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mask_swap"):
 		if current_mask && inventory_mask:
 			swap_current_mask()
-		
+	if Input.is_action_pressed("drag_boulder"):
+		is_dragging_boulder = true
+	if Input.is_action_just_released("drag_boulder"):
+		is_dragging_boulder = false
+		if dragged_boulder:
+			dragged_boulder.end_drag()
+		dragged_boulder = null
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
 			if _can_drop_mask():
@@ -174,15 +182,23 @@ func can_move_to(movement: Vector2) -> bool:
 	var collided: bool = PhysicsServer2D.body_test_motion(get_rid(), params, result)
 	
 	if can_push_boulders:
-		var collider = result.get_collider()
-		if collider is Boulder:
-			var boulder: Boulder = collider
-			if boulder.can_move_to(movement) and not boulder.is_moving:
-				boulder.move_to(movement)
-				return false
+		return handle_boulder_push(movement, result, collided)
 
 	return !collided
 
+
+func handle_boulder_push(movement: Vector2, result: PhysicsTestMotionResult2D, collided: bool) -> bool:
+	var collider = result.get_collider()
+	if is_dragging_boulder and dragged_boulder:
+		var valid_movement: bool = dragged_boulder.can_move_to(movement) and not dragged_boulder.is_moving 
+		if valid_movement and not collided:
+			dragged_boulder.move_to(movement)
+			return !collided
+	elif collider is Boulder and is_dragging_boulder:
+		dragged_boulder = collider
+		dragged_boulder.start_drag()
+		return false
+	return !collided
 
 func move_to(movement: Vector2) -> void:
 	var target_pos = position + movement

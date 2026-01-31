@@ -7,7 +7,7 @@
 
 [node name="Boulder" type="AnimatableBody2D"]
 collision_layer = 8
-collision_mask = 61
+collision_mask = 57
 script = ExtResource("1_3i207")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
