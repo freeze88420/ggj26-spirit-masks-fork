@@ -48,3 +48,9 @@ tween_transition = 8
 
 [node name="BearMask" parent="." instance=ExtResource("4_r6mis")]
 position = Vector2(223, 98)
+
+[node name="MovementTutorial" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WASD to move
+SPACE to pickup"
