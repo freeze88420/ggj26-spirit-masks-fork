@@ -72,7 +72,7 @@ func _can_drop_mask() -> bool:
 # drop your mask onto the world
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
-	current_mask.snap_to_tiles(position)
+	current_mask.snap_to_tiles(position - Vector2.ONE * tile_size / 2)
 	current_mask.deactivate_ability()
 	get_parent().add_child(current_mask)
 	
