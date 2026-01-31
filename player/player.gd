@@ -73,7 +73,7 @@ func can_move_to(pos: Vector2) -> bool:
 	var tile_data: TileData = $"../TileMapLayer".get_cell_tile_data(tile_pos)
 	
 	if tile_data == null:
-		return true
+		return false
 	
 	return !tile_data.get_collision_polygons_count(0) > 0
 
