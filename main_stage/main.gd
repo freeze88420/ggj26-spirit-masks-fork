@@ -12,6 +12,7 @@ const COLLISION_LAYER_CHASM: int = 5
 const COLLISION_LAYER_HEDGE: int = 6
 
 const RESTART_DELAY: float = 0.4 # seconds
+const EXIT_DELAY: float = 0.4 # seconds
 
 
 static func snap_to_tiles(pos: Vector2) -> Vector2:

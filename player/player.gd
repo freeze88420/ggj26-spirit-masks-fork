@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
 
+@export var enabled: bool = true
 
 @onready var mask_slot: Node2D = $MaskSlot
 var current_mask: Mask
@@ -122,18 +123,19 @@ func swap_current_mask() -> void:
 	mask_slot2.add_child(inventory_mask)
 
 func get_input_direction() -> Vector2:
-	var input_direction: Vector2 = Input.get_vector(
-		"player_move_left",
-		"player_move_right",
-		"player_move_up",
-		"player_move_down"
-	)
-	
-	if input_direction != Vector2.ZERO:
-		if abs(input_direction.x) > abs(input_direction.y):
-			return Vector2(sign(input_direction.x), 0)
-		else:
-			return Vector2(0, sign(input_direction.y))
+	if enabled:
+		var input_direction: Vector2 = Input.get_vector(
+			"player_move_left",
+			"player_move_right",
+			"player_move_up",
+			"player_move_down"
+		)
+		
+		if input_direction != Vector2.ZERO:
+			if abs(input_direction.x) > abs(input_direction.y):
+				return Vector2(sign(input_direction.x), 0)
+			else:
+				return Vector2(0, sign(input_direction.y))
 			
 	return Vector2.ZERO
 
