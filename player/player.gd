@@ -14,6 +14,8 @@ var current_mask: Mask
 var is_moving: bool = false
 var tween: Tween
 
+var can_push_boulders: bool = false
+
 
 func _ready() -> void:
 	snap_to_tiles(position)
@@ -118,12 +120,13 @@ func can_move_to(movement: Vector2) -> bool:
 	var result: PhysicsTestMotionResult2D = PhysicsTestMotionResult2D.new()
 	var collided: bool = PhysicsServer2D.body_test_motion(get_rid(), params, result)
 	
-	var collider = result.get_collider()
-	if collider is Boulder:
-		var boulder: Boulder = collider
-		if boulder.can_move_to(movement) and not boulder.is_moving:
-			boulder.move_to(movement)
-			return true
+	if can_push_boulders:
+		var collider = result.get_collider()
+		if collider is Boulder:
+			var boulder: Boulder = collider
+			if boulder.can_move_to(movement) and not boulder.is_moving:
+				boulder.move_to(movement)
+				return true
 
 	return !collided
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdeowxut7owbo"]
+[gd_scene load_steps=4 format=3 uid="uid://cdeowxut7owbo"]
 
 [ext_resource type="PackedScene" uid="uid://cvdt7mq52s854" path="res://masks/mask.tscn" id="1_ycsu6"]
+[ext_resource type="Script" uid="uid://d3e4dvmmkumvq" path="res://masks/bear_mask.gd" id="2_a8cev"]
 [ext_resource type="Texture2D" uid="uid://c74ff7hkly36d" path="res://assets/bear small.png" id="2_aidnm"]
 
 [node name="BearMask" instance=ExtResource("1_ycsu6")]
+script = ExtResource("2_a8cev")
 
 [node name="Sprite2D" parent="." index="0"]
 texture_filter = 1
