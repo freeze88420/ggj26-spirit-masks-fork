@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b2uxr5qf5psqr" path="res://colormap.png" id="4_clowq"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="4_r6mis"]
 [ext_resource type="Texture2D" uid="uid://bhwwgn3y5llhj" path="res://assets/bush_tileset.png" id="4_sn15n"]
-[ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="5_r6mis"]
-[ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="6_xlbi3"]
+[ext_resource type="PackedScene" path="res://masks/eagle_mask.tscn" id="5_r6mis"]
+[ext_resource type="PackedScene" path="res://masks/fish_mask.tscn" id="6_xlbi3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6mis"]
 texture = ExtResource("4_clowq")
