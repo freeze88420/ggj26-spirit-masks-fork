@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cepc26u0ol6bu"]
+
+[ext_resource type="Texture2D" uid="uid://chgn3k8f3vm05" path="res://cross.png" id="1_my6tc"]
+[ext_resource type="Script" uid="uid://defq27iqxojrc" path="res://world_objects/area_trigger.gd" id="1_nvlef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvlef"]
+size = Vector2(32, 32)
+
+[node name="AreaTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 74
+script = ExtResource("1_nvlef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_my6tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nvlef")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
