@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var tile_size: int = 16
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 func _can_pickup_mask() -> Mask:
 	# check if you are standing on a mask
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
+	
 	for body in bodies:
 		if body is Mask:
 			return body
@@ -51,6 +53,8 @@ func _can_pickup_mask() -> Mask:
 func _pickup_mask(mask: Mask) -> void:
 	mask.get_parent().remove_child(mask)
 	mask.position = Vector2.ZERO
+	mask.player = self
+	mask.activate_ability()
 	mask_slot.add_child(mask)
 	current_mask = mask
 
@@ -68,7 +72,16 @@ func _can_drop_mask() -> bool:
 func _drop_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
 	current_mask.position = position
+	current_mask.deactivate_ability()
 	get_parent().add_child(current_mask)
+	
+	# This is an ugly hack. 
+	# after the mask is dropped the player needs to move away and 
+	# then back onto it to be able to pick it up again.
+	# Otherwise the player can get stuck if they drop the salmon mask while in the water.
+	position.x += 100
+	position.x -= 100
+	
 	current_mask = null
 
 
