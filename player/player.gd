@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 			
 			if can_move_to(input_direction * Main.TILE_SIZE):
 				move_to(input_direction * Main.TILE_SIZE)
+
 	if Input.is_action_just_pressed("mask_swap"):
 		if current_mask && inventory_mask:
 			swap_current_mask()
@@ -177,7 +178,7 @@ func can_move_to(movement: Vector2) -> bool:
 			var boulder: Boulder = collider
 			if boulder.can_move_to(movement) and not boulder.is_moving:
 				boulder.move_to(movement)
-				return true
+				return false
 
 	return !collided
 
