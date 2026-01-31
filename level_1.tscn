@@ -85,16 +85,18 @@ position = Vector2(719, 432)
 position = Vector2(808, 484)
 
 [node name="Sign" parent="." instance=ExtResource("9_5rr72")]
-position = Vector2(560, 155)
+position = Vector2(785, 111)
+text = "Become small. Slip through tight spaces and forest gaps."
 
 [node name="Sign2" parent="." instance=ExtResource("9_5rr72")]
 position = Vector2(282, 171)
+text = "Glide over deep gaps and unreachable terrain."
 
 [node name="Sign3" parent="." instance=ExtResource("9_5rr72")]
 position = Vector2(776, 483)
+text = "Swim freely through water."
 
 [node name="Sign4" parent="." instance=ExtResource("9_5rr72")]
-position = Vector2(683, 394)
-
-[node name="Sign5" parent="." instance=ExtResource("9_5rr72")]
-position = Vector2(715, 21)
+position = Vector2(717, 22)
+text = "Gain strength: Push and move heavy boulders.
+"
