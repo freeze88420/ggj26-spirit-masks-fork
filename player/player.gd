@@ -12,6 +12,9 @@ extends CharacterBody2D
 @onready var mask_slot: Node2D = $MaskSlot
 var current_mask: Mask
 
+@onready var mask_slot2: Node2D = $MaskSlot2
+var inventory_mask: Mask
+
 
 var is_moving: bool = false
 var tween: Tween
@@ -32,11 +35,19 @@ func _process(delta: float) -> void:
 			
 			if can_move_to(input_direction * Main.TILE_SIZE):
 				move_to(input_direction * Main.TILE_SIZE)
-	
+	if Input.is_action_just_pressed("mask_swap"):
+		if current_mask && inventory_mask:
+			swap_current_mask()
+		
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
 			if _can_drop_mask():
 				_drop_current_mask()
+			else:
+				var mask = _can_pickup_mask()
+				if mask:
+					_pickup_mask(mask)
+				
 		else:
 			var mask = _can_pickup_mask()
 			if mask:
@@ -48,7 +59,7 @@ func _can_pickup_mask() -> Mask:
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
 	
 	for body in bodies:
-		if body is Mask:
+		if body is Mask && body != current_mask:
 			return body
 	return null
 
@@ -58,15 +69,20 @@ func _pickup_mask(mask: Mask) -> void:
 	mask.position = Vector2.ZERO
 	mask.player = self
 	mask.activate_ability()
-	mask_slot.add_child(mask)
-	current_mask = mask
+	if current_mask == null:
+		current_mask = mask
+		mask_slot.add_child(mask)
+	else:
+		inventory_mask = mask
+		mask_slot2.add_child(mask)
+		swap_current_mask()
 
 
 func _can_drop_mask() -> bool:
 	# can't drop your mask if you are standing on another mask
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
 	for body in bodies:
-		if body is Mask and body != current_mask:
+		if body is Mask and body != current_mask and body != inventory_mask:
 			return false
 	return true
 
@@ -86,7 +102,27 @@ func _drop_current_mask() -> void:
 	position.x -= 100
 	
 	current_mask = null
+	if inventory_mask:
+		mask_slot2.remove_child(inventory_mask)
+		current_mask = inventory_mask
+		current_mask.show()
+		mask_slot.add_child(current_mask)
+		inventory_mask = null
+		
 
+# swap the current mask with your inventory
+func swap_current_mask() -> void:
+	mask_slot.remove_child(current_mask)
+	mask_slot2.remove_child(inventory_mask)
+	var temp: Mask = inventory_mask
+	inventory_mask = current_mask
+	current_mask = temp
+	current_mask.show()
+	current_mask.activate_ability()
+	inventory_mask.hide()
+	inventory_mask.deactivate_ability()
+	mask_slot.add_child(current_mask)
+	mask_slot2.add_child(inventory_mask)
 
 func get_input_direction() -> Vector2:
 	var input_direction: Vector2 = Input.get_vector(
