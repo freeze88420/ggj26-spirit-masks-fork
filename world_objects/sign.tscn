@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1vxkl05kk122"]
+
+[ext_resource type="Texture2D" uid="uid://b3vac4i0oftvm" path="res://assets/sign.png" id="1_a3q0v"]
+[ext_resource type="Script" uid="uid://c3npwauhvgmt4" path="res://world_objects/sign.gd" id="1_nwe73"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwe73"]
+radius = 14.035668
+
+[node name="Sign" type="Area2D"]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_nwe73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_a3q0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nwe73")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -101.0
+offset_top = -119.0
+offset_right = 101.0
+offset_bottom = -11.0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
