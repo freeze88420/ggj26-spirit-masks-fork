@@ -54,4 +54,8 @@ func move_to(movement: Vector2) -> void:
 	tween.tween_property(self, "position", target_pos, move_duration)
 	tween.set_trans(tween_transition)
 	tween.set_ease(tween_ease)
-	tween.finished.connect(func(): is_moving = false)
+	tween.finished.connect(_finish_moving)
+
+
+func _finish_moving():
+	is_moving = false

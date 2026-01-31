@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://brykx73avx8aa"]
+
+[ext_resource type="TileSet" uid="uid://2355nqo8mm42" path="res://main_stage/main_tileset.tres" id="1_hk6b7"]
+[ext_resource type="Script" uid="uid://b8eyf2rx3ggpb" path="res://levels/level_base.gd" id="1_nmr65"]
+[ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="3_da5si"]
+[ext_resource type="PackedScene" uid="uid://cpwjhx66rd4l6" path="res://player/player.tscn" id="3_ts4ud"]
+[ext_resource type="PackedScene" path="res://world_objects/sign.tscn" id="4_ep22m"]
+[ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="6_jd1fy"]
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_nmr65")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_hk6b7")
+
+[node name="TreesAndStuff" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_hk6b7")
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_ts4ud")]
+position = Vector2(128, 160)
+
+[node name="Boulder" parent="." instance=ExtResource("3_da5si")]
+position = Vector2(288, 256)
+
+[node name="Sign" parent="." instance=ExtResource("4_ep22m")]
+position = Vector2(352, 224)
+
+[node name="BearMask" parent="." instance=ExtResource("6_jd1fy")]
+position = Vector2(256, 192)
