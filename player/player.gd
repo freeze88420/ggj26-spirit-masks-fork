@@ -32,7 +32,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
-			_drop_current_mask()
+			if _can_drop_mask():
+				_drop_current_mask()
 		else:
 			var mask = _can_pickup_mask()
 			if mask:
@@ -52,6 +53,14 @@ func _pickup_mask(mask: Mask) -> void:
 	mask.position = Vector2.ZERO
 	mask_slot.add_child(mask)
 	current_mask = mask
+
+
+func _can_drop_mask() -> bool:
+	var bodies = $MaskPickupTest.get_overlapping_bodies()
+	for body in bodies:
+		if body is Mask and body != current_mask:
+			return false
+	return true
 
 
 func _drop_current_mask() -> void:
