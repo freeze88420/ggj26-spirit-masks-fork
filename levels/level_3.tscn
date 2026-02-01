@@ -15,16 +15,6 @@ tile_map_data = PackedByteArray("AAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAA
 [node name="TreesAndStuff" parent="." index="1"]
 tile_map_data = PackedByteArray("AAALAAsAFQAAAAAAAAAMAAsAFQAAAAAAAAAKAAUAFQAAAAAAAAANAAYAFQADAAAAAAAOAAYAFQAEAAAAAAAOAAcAFQAEAAEAAAAPAAYAFQAFAAAAAAAPAAcAFQAFAAEAAAAQAAMAFQAEAAAAAAAQAAQAFQAEAAEAAAARAAMAFQAFAAAAAAARAAQAFQAFAAEAAAAMAAEAFQAEAAAAAAAMAAIAFQAEAAEAAAANAAEAFQAFAAAAAAANAAIAFQAFAAEAAAAGAAAAFQAEAAAAAAAGAAEAFQAEAAEAAAAHAAAAFQAFAAAAAAAHAAEAFQAFAAEAAAAPAAQAFQAAAAAAAAAOAAIAFQAAAAAAAAAIAAEAFQAAAAAAAAAJAA8AFQADAAAAAAAHAA4AFQABAAAAAAAHAA8AFQABAAEAAAAIAA4AFQACAAAAAAAIAA8AFQACAAEAAAAMAA8AFQABAAAAAAAMABAAFQABAAEAAAANAA8AFQACAAAAAAANABAAFQACAAEAAAALABAAFQADAAAAAAA=")
 
-[node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
-position = Vector2(496, 432)
-
-[node name="Player" parent="WorldPlacedObjects" index="1"]
-position = Vector2(496, 432)
-move_duration = null
-tween_transition = null
-tween_ease = null
-enabled = null
-
 [node name="LevelCompleteOverlay" type="PanelContainer" parent="." index="5"]
 visible = false
 z_index = 300
@@ -66,5 +56,15 @@ position = Vector2(751, 497)
 
 [node name="Boulder3" parent="." index="12" instance=ExtResource("6_lsnkt")]
 position = Vector2(519, 457)
+
+[node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
+position = Vector2(496, 432)
+
+[node name="Player" parent="WorldPlacedObjects" index="1"]
+position = Vector2(496, 432)
+move_duration = null
+tween_transition = null
+tween_ease = null
+enabled = null
 
 [connection signal="pressed" from="LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]

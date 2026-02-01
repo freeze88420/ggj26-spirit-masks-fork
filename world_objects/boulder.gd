@@ -11,6 +11,7 @@ var is_moving: bool = false
 var tween: Tween
 
 var water_pos: Vector2i;
+var is_in_water: bool = false
 
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
@@ -54,7 +55,7 @@ func start_drag() -> void:
 	set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, false)
 
 func end_drag() -> void:
-	if water_pos == null:
+	if is_in_water == false:
 		set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, true)
 		
 func check_water_situation():
@@ -69,6 +70,9 @@ func check_water_situation():
 				tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
 				start_drag()
 				water_pos = tile_pos
+				is_in_water = true
+			else:
+				is_in_water = false
 			print(tiledata.get_custom_data("type"))
 	else:
 		print("no tilemap")
