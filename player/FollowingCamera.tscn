@@ -5,9 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_638wa"]
 size = Vector2(796, 448)
 
-[node name="FollowingCamera" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 128
+[node name="FollowingCamera" type="Node2D"]
 script = ExtResource("1_638wa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -17,3 +15,4 @@ position_smoothing_speed = 16.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_638wa")
+disabled = true

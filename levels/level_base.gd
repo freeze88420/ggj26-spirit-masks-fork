@@ -8,12 +8,14 @@ var complete: bool = false
 @onready var level_complete_overlay: Control = $CanvasLayer/LevelCompleteOverlay
 @onready var player: Player = $WorldPlacedObjects/Player
 
+
 func _ready():
 	player.current_mask_changed.connect(inventory.set_current_mask)
 	player.inventory_mask_changed.connect(inventory.set_inventory_mask)
 	player.inventory_swapped.connect(inventory.switch_slots)
 	player.current_mask_dropped.connect(inventory.drop_current)
 	player.inventory_mask_dropped.connect(inventory.drop_inventory)
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart_level"):
@@ -40,6 +42,7 @@ func _on_goal_completed() -> void:
 	complete = true
 	player.enabled = false
 	level_complete_overlay.show()
+
 
 func exit_to_level_selector() -> void:
 	get_tree().change_scene_to_packed(load("res://level_selector/level_selector.tscn"))
