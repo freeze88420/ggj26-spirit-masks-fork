@@ -158,7 +158,8 @@ func get_input_direction() -> Vector2:
 
 func can_move_to(movement: Vector2) -> bool:
 	var pos = position + movement
-	
+
+	# If we have a tilemap, check if we are standing on a tile.
 	if tilemap != null:
 		var tile_pos: Vector2i = tilemap.local_to_map(pos)
 		if tilemap.get_cell_tile_data(tile_pos) == null:

@@ -45,8 +45,9 @@ position = Vector2(240, 240)
 [node name="FishMask" parent="WorldPlacedObjects" index="5" instance=ExtResource("4_3sjje")]
 position = Vector2(48, 112)
 
-[node name="Boulder" parent="WorldPlacedObjects" index="6" instance=ExtResource("5_1wlit")]
+[node name="Boulder" parent="WorldPlacedObjects" index="6" node_paths=PackedStringArray("tilemap") instance=ExtResource("5_1wlit")]
 position = Vector2(144, 208)
+tilemap = NodePath("../../Ground")
 
 [node name="Sign" parent="WorldPlacedObjects" index="7" instance=ExtResource("6_mfg5r")]
 position = Vector2(112, 304)
@@ -75,21 +76,25 @@ position = Vector2(368, 208)
 [node name="AreaTrigger4" parent="WorldPlacedObjects" index="14" instance=ExtResource("12_fb634")]
 position = Vector2(400, 208)
 
-[node name="Boulder2" parent="WorldPlacedObjects" index="15" instance=ExtResource("5_1wlit")]
+[node name="Boulder2" parent="WorldPlacedObjects" index="15" node_paths=PackedStringArray("tilemap") instance=ExtResource("5_1wlit")]
 position = Vector2(368, 240)
+tilemap = NodePath("../../Ground")
 
-[node name="Boulder3" parent="WorldPlacedObjects" index="16" instance=ExtResource("5_1wlit")]
+[node name="Boulder3" parent="WorldPlacedObjects" index="16" node_paths=PackedStringArray("tilemap") instance=ExtResource("5_1wlit")]
 position = Vector2(400, 240)
+tilemap = NodePath("../../Ground")
 
 [node name="Door2" parent="WorldPlacedObjects" index="17" node_paths=PackedStringArray("sources") instance=ExtResource("9_mfg5r")]
 position = Vector2(464, 208)
 sources = [NodePath("../AreaTrigger3"), NodePath("../AreaTrigger4")]
 require_all_sources_triggered = false
 
-[node name="Boulder5" parent="WorldPlacedObjects" index="18" instance=ExtResource("5_1wlit")]
+[node name="Boulder5" parent="WorldPlacedObjects" index="18" node_paths=PackedStringArray("tilemap") instance=ExtResource("5_1wlit")]
 position = Vector2(464, 336)
+tilemap = NodePath("../../Ground")
 
-[node name="Boulder4" parent="WorldPlacedObjects" index="19" instance=ExtResource("5_1wlit")]
+[node name="Boulder4" parent="WorldPlacedObjects" index="19" node_paths=PackedStringArray("tilemap") instance=ExtResource("5_1wlit")]
 position = Vector2(464, 304)
+tilemap = NodePath("../../Ground")
 
 [connection signal="completed" from="WorldPlacedObjects/Goal" to="." method="_on_goal_completed"]

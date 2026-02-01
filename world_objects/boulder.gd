@@ -2,6 +2,8 @@ class_name Boulder
 extends AnimatableBody2D
 
 
+@export var tilemap: TileMapLayer
+
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
@@ -13,7 +15,13 @@ var tween: Tween
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
 	var pos: Vector2 = global_position + movement
-	
+
+	# If we have a tilemap, check if we are standing on a tile.
+	if tilemap != null:
+		var tile_pos: Vector2i = tilemap.local_to_map(pos)
+		if tilemap.get_cell_tile_data(tile_pos) == null:
+			return false
+
 	var motion: Vector2 = pos - global_position
 	var params: PhysicsTestMotionParameters2D = PhysicsTestMotionParameters2D.new()
 	params.from = global_transform
