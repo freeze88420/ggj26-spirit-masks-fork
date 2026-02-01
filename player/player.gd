@@ -23,6 +23,8 @@ var inventory_mask: Mask
 var is_dragging_boulder: bool = false
 var dragged_boulder: Boulder
 
+@onready var mask_animator: MaskAnimator = $MaskAnimator
+
 
 var is_moving: bool = false
 var tween: Tween
@@ -43,6 +45,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mask_swap"):
 		if current_mask && inventory_mask:
 			swap_current_mask()
+			mask_animator.stash_mask(inventory_mask)
+			mask_animator.wear_mask(current_mask)
 	if Input.is_action_pressed("drag_boulder"):
 		is_dragging_boulder = true
 	if Input.is_action_just_released("drag_boulder"):
@@ -75,11 +79,14 @@ func _can_pickup_mask() -> Mask:
 			return body
 	return null
 
+
 func get_current_mask():
 	return current_mask
 
+
 func get_inventory_mask():
 	return inventory_mask
+
 
 func _pickup_mask(mask: Mask) -> void:
 	mask.get_parent().remove_child(mask)
@@ -91,11 +98,14 @@ func _pickup_mask(mask: Mask) -> void:
 		mask_slot.add_child(mask)
 		print("Should emit a signal")
 		emit_signal("current_mask_changed", current_mask)
+		mask_animator.pickup_mask(current_mask)
 	else:
 		inventory_mask = mask
 		mask_slot2.add_child(mask)
 		emit_signal("inventory_mask_changed", inventory_mask)
 		swap_current_mask()
+		mask_animator.pickup_mask(current_mask)
+		mask_animator.stash_mask(inventory_mask)
 
 
 func _can_drop_mask() -> bool:
@@ -121,6 +131,7 @@ func _drop_current_mask() -> void:
 	position.x += 100
 	position.x -= 100
 	
+	mask_animator.drop_mask(current_mask)
 	current_mask = null
 	emit_signal("current_mask_dropped")
 	if inventory_mask:
@@ -130,7 +141,8 @@ func _drop_current_mask() -> void:
 		current_mask.activate_ability()
 		mask_slot.add_child(current_mask)
 		inventory_mask = null
-		
+		mask_animator.wear_mask(current_mask)
+
 
 # swap the current mask with your inventory
 func swap_current_mask() -> void:
@@ -146,6 +158,7 @@ func swap_current_mask() -> void:
 	mask_slot.add_child(current_mask)
 	mask_slot2.add_child(inventory_mask)
 	emit_signal("inventory_swapped")
+
 
 func get_input_direction() -> Vector2:
 	if enabled:
@@ -200,6 +213,7 @@ func handle_boulder_push(movement: Vector2, result: PhysicsTestMotionResult2D, c
 		dragged_boulder.start_drag()
 		return false
 	return !collided
+
 
 func move_to(movement: Vector2) -> void:
 	var target_pos = position + movement
