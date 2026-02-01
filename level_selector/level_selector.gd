@@ -16,3 +16,6 @@ func _ready() -> void:
 			0
 		)
 		$MarginContainer/GridContainer.add_child(button)
+	
+	var first_btn: Control = $MarginContainer/GridContainer.get_child(0)
+	first_btn.grab_focus()
