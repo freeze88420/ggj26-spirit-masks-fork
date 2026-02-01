@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("drag_boulder"):
 		is_dragging_boulder = false
 		if dragged_boulder:
+			dragged_boulder.check_water_situation()
 			dragged_boulder.end_drag()
 		dragged_boulder = null
 	if Input.is_action_just_pressed("mask_interact"):

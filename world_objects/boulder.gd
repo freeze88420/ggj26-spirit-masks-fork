@@ -39,23 +39,6 @@ func can_move_to(movement: Vector2) -> bool:
 func move_to(movement: Vector2) -> void:
 	var target_pos: Vector2 = position + movement
 	
-	if tilemap != null:
-		var tile_pos: Vector2i = tilemap.local_to_map(target_pos)
-		var source_id: int = tilemap.get_cell_source_id(tile_pos)
-		var tiledata: TileData = tilemap.get_cell_tile_data(tile_pos)
-		if tiledata:
-			var type: String = tiledata.get_custom_data("type")
-			if type == "water":
-				pass
-				tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
-				start_drag()
-				water_pos = tile_pos
-			print(tiledata.get_custom_data("type"))
-	else:
-		print("no tilemap")
-		
-			
-	
 	is_moving = true
 	
 	if tween:
@@ -75,7 +58,22 @@ func start_drag() -> void:
 func end_drag() -> void:
 	if water_pos == null:
 		set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, true)
-	
+		
+func check_water_situation():
+	if tilemap != null:
+		var tile_pos: Vector2i = tilemap.local_to_map(position)
+		var source_id: int = tilemap.get_cell_source_id(tile_pos)
+		var tiledata: TileData = tilemap.get_cell_tile_data(tile_pos)
+		if tiledata:
+			var type: String = tiledata.get_custom_data("type")
+			if type == "water":
+				pass
+				tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
+				start_drag()
+				water_pos = tile_pos
+			print(tiledata.get_custom_data("type"))
+	else:
+		print("no tilemap")
 
 
 func _finish_moving():
