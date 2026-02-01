@@ -89,6 +89,11 @@ func get_inventory_mask():
 
 
 func _pickup_mask(mask: Mask) -> void:
+	
+	# mask sounds related
+	mask.play_pickup_sound()
+	
+	
 	# Force collision check for triggers
 	var collision_shape: Node = mask.get_node("CollisionShape2D")
 	var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()

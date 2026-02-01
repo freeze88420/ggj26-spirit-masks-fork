@@ -2,6 +2,10 @@ class_name Mask
 extends Node2D
 ## Base class for masks you can pick up
 
+# mask sounds
+@onready var sfx: AudioStreamPlayer2D = $SfxPlayer
+@export var pickup_sfx: AudioStream
+
 
 var player: Player
 
@@ -24,3 +28,9 @@ func _deactivate_ability():
 
 func get_texture() -> Texture2D:
 	return $Sprite2D.texture
+
+func play_pickup_sound():
+	# mask sounds
+	if sfx.playing:
+		sfx.stop()
+	sfx.play()
