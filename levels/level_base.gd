@@ -4,8 +4,8 @@ var restart_timer: float
 var exit_timer: float
 var complete: bool = false
 
-@onready var inventory: Control = $FollowingCamera/Inventory
-@onready var level_complete_overlay: Control = $FollowingCamera/LevelCompleteOverlay
+@onready var inventory: Control = $CanvasLayer/Inventory
+@onready var level_complete_overlay: Control = $CanvasLayer/LevelCompleteOverlay
 @onready var player: Player = $WorldPlacedObjects/Player
 
 func _ready():
