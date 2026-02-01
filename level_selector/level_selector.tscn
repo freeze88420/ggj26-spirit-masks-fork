@@ -1,23 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://br7thvxwt57wb"]
+[gd_scene load_steps=20 format=3 uid="uid://br7thvxwt57wb"]
 
 [ext_resource type="Script" uid="uid://eesyi4n3dig3" path="res://level_selector/level_selector.gd" id="1_8q467"]
-[ext_resource type="PackedScene" uid="uid://d3d6d8nujsjnk" path="res://levels/prototype_level.tscn" id="2_bqtf1"]
 [ext_resource type="Script" uid="uid://c1nowwy4i8mvb" path="res://level_selector/level_data.gd" id="2_ey3to"]
 [ext_resource type="PackedScene" uid="uid://b8op5fop570di" path="res://levels/level_1.tscn" id="3_8rcln"]
 [ext_resource type="PackedScene" uid="uid://ra5ae0xux7fj" path="res://levels/level_2_new.tscn" id="4_28gom"]
 [ext_resource type="PackedScene" uid="uid://bd22r54mjk5fs" path="res://levels/level_3.tscn" id="5_28gom"]
-[ext_resource type="PackedScene" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
+[ext_resource type="PackedScene" uid="uid://ce3xhg1ckttyb" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
 [ext_resource type="PackedScene" uid="uid://dgt3cdral5k7u" path="res://levels/level_4.tscn" id="6_cxlhq"]
 [ext_resource type="PackedScene" uid="uid://dwannankyldc8" path="res://levels/level_tutorial_obstacles.tscn" id="6_hggau"]
 [ext_resource type="PackedScene" uid="uid://b1ol8734mkfht" path="res://levels/level_5.tscn" id="7_cxlhq"]
 [ext_resource type="Texture2D" uid="uid://bgm32x8a2vvdc" path="res://wallpaper/levelWallPaperPixelResize.jpg" id="9_o0sms"]
-[ext_resource type="PackedScene" uid="uid://ddunte0v7wsvq" path="res://levels/level_6.tscn" id="11_j677p"]
-
-[sub_resource type="Resource" id="Resource_cxlhq"]
-script = ExtResource("2_ey3to")
-name = "Prototype Level"
-scene = ExtResource("2_bqtf1")
-metadata/_custom_type_script = "uid://c1nowwy4i8mvb"
+[ext_resource type="PackedScene" uid="uid://bbfft1nqp03i8" path="res://levels/level_6.tscn" id="11_j677p"]
 
 [sub_resource type="Resource" id="Resource_o0sms"]
 script = ExtResource("2_ey3to")
@@ -69,7 +62,7 @@ metadata/_custom_type_script = "uid://c1nowwy4i8mvb"
 
 [node name="LevelSelector" type="Node"]
 script = ExtResource("1_8q467")
-levels = Array[ExtResource("2_ey3to")]([SubResource("Resource_cxlhq"), SubResource("Resource_o0sms"), SubResource("Resource_6j37x"), SubResource("Resource_ncxc5"), SubResource("Resource_ukbrm"), SubResource("Resource_j677p"), SubResource("Resource_fytug"), SubResource("Resource_v1hyg"), SubResource("Resource_013pk")])
+levels = Array[ExtResource("2_ey3to")]([SubResource("Resource_o0sms"), SubResource("Resource_6j37x"), SubResource("Resource_ncxc5"), SubResource("Resource_ukbrm"), SubResource("Resource_j677p"), SubResource("Resource_fytug"), SubResource("Resource_v1hyg"), SubResource("Resource_013pk")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 800.0
