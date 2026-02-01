@@ -49,6 +49,7 @@ func _on_goal_completed() -> void:
 	complete = true
 	player.enabled = false
 	level_complete_overlay.show()
+	$CanvasLayer/LevelCompleteOverlay/AnimationPlayer.play("LevelComplete")
 
 
 func exit_to_level_selector() -> void:
