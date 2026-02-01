@@ -18,3 +18,7 @@ const EXIT_DELAY: float = 0.4 # seconds
 static func snap_to_tiles(pos: Vector2) -> Vector2:
 	pos += Vector2.ONE * Main.TILE_SIZE /2
 	return pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2
+
+static func snap_to_tile_center(layer: TileMapLayer, pos: Vector2) -> Vector2:
+	var cell := layer.local_to_map(pos)
+	return layer.map_to_local(cell)
