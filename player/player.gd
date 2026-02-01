@@ -21,6 +21,8 @@ var current_mask: Mask
 @onready var mask_slot2: Node2D = $MaskSlot2
 var inventory_mask: Mask
 
+@onready var animated_dude: AnimatedSprite2D = $AnimatedSprite2D
+
 var is_dragging_boulder: bool = false
 var dragged_boulder: Boulder
 
@@ -38,7 +40,7 @@ func _process(delta: float) -> void:
 		var input_direction: Vector2 = get_input_direction()
 		
 		if input_direction != Vector2.ZERO:
-			$Body.set_rotation(Vector2.RIGHT.angle_to(input_direction))
+			#$Body.set_rotation(Vector2.RIGHT.angle_to(input_direction))
 			
 			if can_move_to(input_direction * Main.TILE_SIZE):
 				move_to(input_direction * Main.TILE_SIZE)
@@ -239,6 +241,7 @@ func can_move_to(movement: Vector2) -> bool:
 
 
 func move_to(movement: Vector2) -> void:
+	animated_dude.play()
 	var target_pos = position + movement
 	
 	is_moving = true

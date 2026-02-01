@@ -1,8 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpwjhx66rd4l6"]
+[gd_scene load_steps=18 format=3 uid="uid://cpwjhx66rd4l6"]
 
-[ext_resource type="Texture2D" uid="uid://c13v56vuaad4w" path="res://assets/circle_arrow.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c2saeq0ht2hyy" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Script" uid="uid://qy4kq744r2tc" path="res://player/mask_animation.gd" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://5lb7hxt0hhu6" path="res://assets/dude walking/4.png" id="2_g1dw6"]
+[ext_resource type="Script" path="res://player/mask_animation.gd" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://bbiavbuqw8r35" path="res://assets/dude walking/1.png" id="3_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://mf44v2dy7qp" path="res://assets/dude walking/2.png" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://bwjs5pvquxjxa" path="res://assets/dude walking/3.png" id="5_rgyib"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg6s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g6k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_boad6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rgyib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g1dw6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
 radius = 1.5206907
@@ -292,8 +315,14 @@ collision_mask = 61
 script = ExtResource("1_rkbax")
 
 [node name="Body" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
-texture = ExtResource("1_oul6g")
+texture = ExtResource("2_g1dw6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hg6s5")
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4, 4)
