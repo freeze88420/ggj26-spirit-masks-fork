@@ -89,6 +89,15 @@ func get_inventory_mask():
 
 
 func _pickup_mask(mask: Mask) -> void:
+	# Force collision check for triggers
+	var collision_shape: Node = mask.get_node("CollisionShape2D")
+	var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+	query.shape = collision_shape.shape
+	query.transform = collision_shape.get_global_transform()
+	query.collision_mask = 1 << (Main.COLLISION_LAYER_TRIGGER - 1)
+	query.collide_with_areas = true
+	call_deferred("check_for_triggers", query, false)
+
 	mask.get_parent().remove_child(mask)
 	mask.position = Vector2.ZERO
 	mask.player = self

@@ -12,13 +12,13 @@ func is_triggered() -> bool:
 	
 func all_triggered() -> bool:
 	for trigger in sources:
-		if !trigger.is_triggered:
+		if !trigger.is_triggered():
 			return false
 	return true
 	
 	
 func any_triggered() -> bool:
 	for trigger in sources:
-		if trigger.is_triggered:
+		if trigger.is_triggered():
 			return true
 	return false
