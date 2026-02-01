@@ -29,10 +29,10 @@ offset_left = 3.0
 offset_right = 3.0
 
 [node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
-position = Vector2(528, 528)
+position = Vector2(49, 257)
 
 [node name="Player" parent="WorldPlacedObjects" index="1"]
-position = Vector2(528, 528)
+position = Vector2(49, 257)
 
 [node name="AreaTrigger" parent="WorldPlacedObjects" index="2" instance=ExtResource("6_sc6c1")]
 position = Vector2(144, 432)
