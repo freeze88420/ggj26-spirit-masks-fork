@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fmv87j0vu1xk" path="res://player/following_camera.gd" id="1_638wa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_638wa"]
-size = Vector2(960, 540)
+size = Vector2(796, 448)
 
 [node name="FollowingCamera" type="CharacterBody2D"]
 collision_layer = 0

@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=796
+window/size/viewport_height=448
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [editor]
 
