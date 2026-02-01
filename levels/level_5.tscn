@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://brykx73avx8aa" path="res://levels/level_base.tscn" id="1_erq1u"]
 [ext_resource type="PackedScene" uid="uid://cepc26u0ol6bu" path="res://world_objects/area_trigger.tscn" id="2_r02ll"]
 [ext_resource type="PackedScene" uid="uid://h0yv1ybhik3o" path="res://world_objects/door.tscn" id="3_26h77"]
-[ext_resource type="PackedScene" path="res://masks/mouse_mask.tscn" id="4_1y5xd"]
+[ext_resource type="PackedScene" uid="uid://5uft2nu2i33c" path="res://masks/mouse_mask.tscn" id="4_1y5xd"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="5_g5mgy"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="6_v5ho1"]
 [ext_resource type="PackedScene" uid="uid://bkbhd33x46nf8" path="res://world_objects/goal.tscn" id="7_ldpug"]
