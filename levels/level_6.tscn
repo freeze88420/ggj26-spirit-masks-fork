@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://kkh6y4k2v2ln"]
+[gd_scene load_steps=11 format=4 uid="uid://bbfft1nqp03i8"]
 
 [ext_resource type="PackedScene" uid="uid://brykx73avx8aa" path="res://levels/level_base.tscn" id="1_6up2b"]
 [ext_resource type="PackedScene" uid="uid://cepc26u0ol6bu" path="res://world_objects/area_trigger.tscn" id="2_xn6mk"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="4_v2dqh"]
 [ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="5_nu44e"]
 [ext_resource type="PackedScene" uid="uid://5uft2nu2i33c" path="res://masks/mouse_mask.tscn" id="6_kx1xp"]
-[ext_resource type="PackedScene" path="res://world_objects/triggerable.tscn" id="7_m516p"]
+[ext_resource type="PackedScene" uid="uid://bwfldtr6lfntm" path="res://world_objects/triggerable.tscn" id="7_m516p"]
 [ext_resource type="Script" path="res://world_objects/goal_trigger.gd" id="8_l3m5x"]
 [ext_resource type="PackedScene" uid="uid://cn1gw3wyi8wyc" path="res://world_objects/sign.tscn" id="9_3t5n2"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="10_v2dqh"]
@@ -55,15 +55,15 @@ position = Vector2(-48, -16)
 script = ExtResource("8_l3m5x")
 sources = [NodePath("../AreaTrigger"), NodePath("../AreaTrigger2"), NodePath("../AreaTrigger3"), NodePath("../AreaTrigger4")]
 
-[node name="Sign" parent="." index="6" instance=ExtResource("9_3t5n2")]
-position = Vector2(238, 136)
+[node name="Sign" parent="WorldPlacedObjects" index="11" instance=ExtResource("9_3t5n2")]
+position = Vector2(240, 144)
 text = "Place all masks on the shrine"
 
-[node name="Boulder2" parent="." index="7" instance=ExtResource("10_v2dqh")]
-position = Vector2(239, 172)
+[node name="Boulder2" parent="WorldPlacedObjects" index="12" instance=ExtResource("10_v2dqh")]
+position = Vector2(240, 176)
 
-[node name="Boulder3" parent="." index="8" instance=ExtResource("10_v2dqh")]
-position = Vector2(239, 206)
+[node name="Boulder3" parent="WorldPlacedObjects" index="13" instance=ExtResource("10_v2dqh")]
+position = Vector2(240, 208)
 
-[node name="Boulder" parent="." index="9" instance=ExtResource("10_v2dqh")]
-position = Vector2(303, 366)
+[node name="Boulder" parent="WorldPlacedObjects" index="14" instance=ExtResource("10_v2dqh")]
+position = Vector2(304, 368)
