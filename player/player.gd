@@ -141,6 +141,16 @@ func _drop_current_mask() -> void:
 	position.x -= 100
 	
 	mask_animator.drop_mask(current_mask)
+
+	# Force collision check for triggers
+	var collision_shape: Node = current_mask.get_node("CollisionShape2D")
+	var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+	query.shape = collision_shape.shape
+	query.transform = collision_shape.get_global_transform()
+	query.collision_mask = 1 << (Main.COLLISION_LAYER_TRIGGER - 1)
+	query.collide_with_areas = true
+	call_deferred("check_for_triggers", query, true)
+
 	current_mask = null
 	emit_signal("current_mask_dropped")
 	if inventory_mask:
@@ -151,6 +161,17 @@ func _drop_current_mask() -> void:
 		mask_slot.add_child(current_mask)
 		inventory_mask = null
 		mask_animator.wear_mask(current_mask)
+
+
+func check_for_triggers(query: PhysicsShapeQueryParameters2D, enter: bool) -> void:
+	var results: Array[Dictionary] = get_world_2d().direct_space_state.intersect_shape(query, 1000)
+	for result in results:
+		var layer_check: bool = (result.collider.collision_mask & (1 << (Main.COLLISION_LAYER_MASK - 1))) != 0
+		if result.collider is AreaTrigger && layer_check:
+			if enter:
+				result.collider._on_body_entered(current_mask)
+			else:
+				result.collider._on_body_exited(current_mask)
 
 
 # swap the current mask with your inventory
