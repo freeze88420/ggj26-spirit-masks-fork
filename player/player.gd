@@ -20,6 +20,7 @@ var current_mask: Mask
 
 @onready var mask_slot2: Node2D = $MaskSlot2
 var inventory_mask: Mask
+
 var is_dragging_boulder: bool = false
 var dragged_boulder: Boulder
 
@@ -41,20 +42,23 @@ func _process(delta: float) -> void:
 			
 			if can_move_to(input_direction * Main.TILE_SIZE):
 				move_to(input_direction * Main.TILE_SIZE)
-
-	if Input.is_action_just_pressed("mask_swap"):
-		if current_mask && inventory_mask:
-			swap_current_mask()
-			mask_animator.stash_mask(inventory_mask)
-			mask_animator.wear_mask(current_mask)
+	
 	if Input.is_action_pressed("drag_boulder"):
 		is_dragging_boulder = true
+	
 	if Input.is_action_just_released("drag_boulder"):
 		is_dragging_boulder = false
 		if dragged_boulder:
 			dragged_boulder.check_water_situation()
 			dragged_boulder.end_drag()
 		dragged_boulder = null
+	
+	if Input.is_action_just_pressed("mask_swap"):
+		if current_mask && inventory_mask:
+			swap_current_mask()
+			mask_animator.stash_mask(inventory_mask)
+			mask_animator.wear_mask(current_mask)
+	
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
 			if _can_drop_mask():
@@ -71,6 +75,9 @@ func _process(delta: float) -> void:
 
 
 func _can_pickup_mask() -> Mask:
+	if current_mask and inventory_mask:
+		return null
+	
 	# check if you are standing on a mask
 	var bodies = $MaskPickupTest.get_overlapping_bodies()
 	
@@ -89,10 +96,8 @@ func get_inventory_mask():
 
 
 func _pickup_mask(mask: Mask) -> void:
-	
 	# mask sounds related
 	mask.play_pickup_sound()
-	
 	
 	# Force collision check for triggers
 	var collision_shape: Node = mask.get_node("CollisionShape2D")
@@ -183,13 +188,17 @@ func check_for_triggers(query: PhysicsShapeQueryParameters2D, enter: bool) -> vo
 func swap_current_mask() -> void:
 	mask_slot.remove_child(current_mask)
 	mask_slot2.remove_child(inventory_mask)
+	
 	var temp: Mask = inventory_mask
 	inventory_mask = current_mask
 	current_mask = temp
-	current_mask.show()
-	current_mask.activate_ability()
+	
 	inventory_mask.hide()
 	inventory_mask.deactivate_ability()
+	
+	current_mask.show()
+	current_mask.activate_ability()
+	
 	mask_slot.add_child(current_mask)
 	mask_slot2.add_child(inventory_mask)
 	emit_signal("inventory_swapped")
