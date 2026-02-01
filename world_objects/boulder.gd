@@ -2,8 +2,6 @@ class_name Boulder
 extends AnimatableBody2D
 
 
-@export var tilemap: TileMapLayer
-
 @export var move_duration: float = 0.15 # seconds
 @export var tween_transition: Tween.TransitionType = Tween.TRANS_SINE
 @export var tween_ease: Tween.EaseType = Tween.EASE_IN_OUT
