@@ -5,6 +5,7 @@ var inventory_mask: Mask
 
 @onready var first_slot: TextureRect = $HBoxContainer/FirstSlot
 @onready var second_slot: TextureRect = $HBoxContainer/SecondSlot
+@onready var basic_texture: Texture2D = load("res://assets/mask_outline.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,12 +34,12 @@ func switch_slots():
 	second_slot.texture = temp_tex
 
 func drop_current():
-	if second_slot.texture == null:
-		first_slot.texture = null
+	if second_slot.texture == basic_texture:
+		first_slot.texture = basic_texture
 	else :
 		
 		first_slot.texture = second_slot.texture
-		second_slot.texture = null
+		second_slot.texture = basic_texture
 	
 func drop_inventory():
-	second_slot.texture = null
+	second_slot.texture = basic_texture

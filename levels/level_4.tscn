@@ -29,6 +29,8 @@ position = Vector2(48, 240)
 
 [node name="AreaTrigger" parent="WorldPlacedObjects" index="2" instance=ExtResource("6_sc6c1")]
 position = Vector2(144, 432)
+collision_layer = 0
+collision_mask = 74
 
 [node name="Boulder" parent="WorldPlacedObjects" index="3" instance=ExtResource("2_t6q73")]
 position = Vector2(272, 48)
