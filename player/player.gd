@@ -194,7 +194,7 @@ func handle_boulder_push(movement: Vector2, result: PhysicsTestMotionResult2D, c
 		var valid_movement: bool = dragged_boulder.can_move_to(movement) and not dragged_boulder.is_moving 
 		if valid_movement and not collided:
 			dragged_boulder.move_to(movement)
-			return !collided
+			return false
 	elif collider is Boulder and is_dragging_boulder:
 		dragged_boulder = collider
 		dragged_boulder.start_drag()

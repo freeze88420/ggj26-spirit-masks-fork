@@ -43,7 +43,7 @@ position = Vector2(367, 181)
 position = Vector2(75, 339)
 
 [node name="BearMask" parent="." index="8" instance=ExtResource("4_ofchu")]
-position = Vector2(521, 403)
+position = Vector2(52, 215)
 
 [node name="MouseMask" parent="." index="9" instance=ExtResource("5_jq78i")]
 position = Vector2(236, 143)
@@ -54,17 +54,10 @@ position = Vector2(304, 238)
 [node name="Boulder2" parent="." index="11" instance=ExtResource("6_lsnkt")]
 position = Vector2(751, 497)
 
-[node name="Boulder3" parent="." index="12" instance=ExtResource("6_lsnkt")]
-position = Vector2(519, 457)
-
 [node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
-position = Vector2(496, 432)
+position = Vector2(67, 267)
 
 [node name="Player" parent="WorldPlacedObjects" index="1"]
-position = Vector2(496, 432)
-move_duration = null
-tween_transition = null
-tween_ease = null
-enabled = null
+position = Vector2(67, 267)
 
 [connection signal="pressed" from="LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]
