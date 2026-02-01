@@ -28,10 +28,10 @@ offset_left = 3.0
 offset_right = 3.0
 
 [node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
-position = Vector2(48, 272)
+position = Vector2(53, 256)
 
 [node name="Player" parent="WorldPlacedObjects" index="1"]
-position = Vector2(48, 272)
+position = Vector2(53, 256)
 
 [node name="AreaTrigger" parent="WorldPlacedObjects" index="2" instance=ExtResource("6_sc6c1")]
 position = Vector2(144, 432)
@@ -45,7 +45,7 @@ position = Vector2(464, 368)
 position = Vector2(272, 48)
 
 [node name="Boulder2" parent="WorldPlacedObjects" index="5" instance=ExtResource("2_t6q73")]
-position = Vector2(336, 80)
+position = Vector2(398, 49)
 
 [node name="Door" parent="WorldPlacedObjects" index="6" node_paths=PackedStringArray("sources") instance=ExtResource("3_hokjj")]
 position = Vector2(240, 400)
@@ -68,7 +68,7 @@ position = Vector2(144, 240)
 position = Vector2(688, 240)
 
 [node name="Boulder5" parent="WorldPlacedObjects" index="12" instance=ExtResource("2_t6q73")]
-position = Vector2(336, 16)
+position = Vector2(334, 50)
 
 [node name="Boulder6" parent="WorldPlacedObjects" index="13" instance=ExtResource("2_t6q73")]
 position = Vector2(656, 272)
@@ -85,6 +85,6 @@ position = Vector2(688, 400)
 position = Vector2(560, 560)
 
 [node name="Boulder8" parent="WorldPlacedObjects" index="17" instance=ExtResource("2_t6q73")]
-position = Vector2(48, 167)
+position = Vector2(48, 176)
 
 [connection signal="completed" from="WorldPlacedObjects/Goal" to="." method="_on_goal_completed"]
