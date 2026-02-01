@@ -97,6 +97,20 @@ text = "Next Level (ENTER)"
 layout_mode = 2
 text = "Back to Level Selection (ESC)"
 
+[node name="EscapeHint" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_bottom = 49.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/EscapeHint"]
+layout_mode = 2
+text = "Hold ESCAPE to escape
+Hold R to reset"
+
 [node name="WorldPlacedObjects" type="Node2D" parent="."]
 z_index = 10
 script = ExtResource("5_ep22m")

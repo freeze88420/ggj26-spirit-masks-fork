@@ -6,6 +6,8 @@ var complete: bool = false
 
 @onready var inventory: Control = $CanvasLayer/Inventory
 @onready var level_complete_overlay: Control = $CanvasLayer/LevelCompleteOverlay
+@onready var escape_hint: Control = $CanvasLayer/EscapeHint
+
 @onready var player: Player = $WorldPlacedObjects/Player
 
 
@@ -28,7 +30,9 @@ func _process(delta: float) -> void:
 
 	if Input.is_key_pressed(Key.KEY_ENTER) and complete:
 		_on_next_level_pressed()
-
+	
+	escape_hint.visible = Input.is_action_pressed("back_action")
+	
 	if Input.is_action_pressed("back_action"):
 		if complete: # instantly exit if level is already completed
 			exit_to_level_selector()
