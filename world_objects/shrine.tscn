@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpivvvnf6aclr"]
+[gd_scene load_steps=4 format=3 uid="uid://b463mbij4yjld"]
 
-[ext_resource type="Script" uid="uid://b7l3pgltly807" path="res://world_objects/shrine.gd" id="1_fxkx2"]
-[ext_resource type="Texture2D" uid="uid://cftllq6l7xclt" path="res://icon.svg" id="2_q7vps"]
+[ext_resource type="Script" path="res://world_objects/shrine.gd" id="1_fxkx2"]
+[ext_resource type="Texture2D" uid="uid://csvtwen24upd7" path="res://assets/icon.svg" id="2_fxkx2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gknvl"]
 
@@ -14,4 +14,4 @@ script = ExtResource("1_fxkx2")
 shape = SubResource("RectangleShape2D_gknvl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_q7vps")
+texture = ExtResource("2_fxkx2")
