@@ -6,6 +6,7 @@ extends Node2D
 @onready var sfx: AudioStreamPlayer2D = $SfxPlayer
 @export var pickup_sfx: AudioStream
 
+@onready var treesNStuff: TileMapLayer = get_tree().current_scene.get_node("TreesAndStuff")
 
 var player: Player
 
@@ -25,6 +26,8 @@ func _activate_ability():
 func _deactivate_ability():
 	pass
 
+func _special_power():
+	pass
 
 func get_texture() -> Texture2D:
 	return $Sprite2D.texture

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2saeq0ht2hyy" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://5lb7hxt0hhu6" path="res://assets/dude walking/4.png" id="2_g1dw6"]
-[ext_resource type="Script" path="res://player/mask_animation.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://qy4kq744r2tc" path="res://player/mask_animation.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bbiavbuqw8r35" path="res://assets/dude walking/1.png" id="3_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://mf44v2dy7qp" path="res://assets/dude walking/2.png" id="4_boad6"]
 [ext_resource type="Texture2D" uid="uid://bwjs5pvquxjxa" path="res://assets/dude walking/3.png" id="5_rgyib"]

@@ -50,6 +50,10 @@ func _process(delta: float) -> void:
 			swap_current_mask()
 			mask_animator.stash_mask(inventory_mask)
 			mask_animator.wear_mask(current_mask)
+			
+	if Input.is_action_just_pressed("special_power"):
+		if current_mask:
+			current_mask._special_power()
 	
 	if Input.is_action_just_pressed("mask_interact"):
 		if current_mask:
@@ -255,3 +259,4 @@ func move_to(movement: Vector2) -> void:
 	tween.set_trans(tween_transition)
 	tween.set_ease(tween_ease)
 	tween.finished.connect(func(): is_moving = false)
+	
