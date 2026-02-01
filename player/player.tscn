@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cpwjhx66rd4l6"]
 
-[ext_resource type="Texture2D" uid="uid://c13v56vuaad4w" path="res://circle_arrow.png" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://c13v56vuaad4w" path="res://assets/circle_arrow.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c2saeq0ht2hyy" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://qy4kq744r2tc" path="res://player/mask_animation.gd" id="3_g1dw6"]
 

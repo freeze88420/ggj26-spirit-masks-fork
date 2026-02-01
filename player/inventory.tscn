@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://2gl0denbhq43"]
 
-[ext_resource type="Script" uid="uid://cxb0ddr75xt05" path="res://inventory.gd" id="1_pohso"]
+[ext_resource type="Script" uid="uid://cxb0ddr75xt05" path="res://player/inventory.gd" id="1_pohso"]
 [ext_resource type="Texture2D" uid="uid://doqnym2bs0jop" path="res://assets/mask_outline.png" id="2_psafj"]
 
 [node name="Control" type="Control"]
