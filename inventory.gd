@@ -3,8 +3,8 @@ extends Control
 var current_mask: Mask
 var inventory_mask: Mask
 
-@onready var first_slot: TextureRect = $HBoxContainer/FirstSlot
-@onready var second_slot: TextureRect = $HBoxContainer/SecondSlot
+@onready var first_slot: TextureRect = $CenterContainer/HBoxContainer/FirstSlot
+@onready var second_slot: TextureRect = $CenterContainer/HBoxContainer/SecondSlot
 @onready var basic_texture: Texture2D = load("res://assets/mask_outline.png")
 
 
