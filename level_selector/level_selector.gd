@@ -1,18 +1,18 @@
 extends Node
 
 
-@export var levels: Dictionary[String, PackedScene]
+@export var levels: Array[LevelData]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for level in levels:
 		var button: Button = Button.new()
-		button.text = level
+		button.text = level.name
 		button.connect(
 			"pressed",
 			func():
-				get_tree().change_scene_to_packed(levels[level]),
+				get_tree().change_scene_to_packed(levels[level].scene),
 			0
 		)
 		$MarginContainer/GridContainer.add_child(button)
