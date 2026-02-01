@@ -43,16 +43,6 @@ func _process(delta: float) -> void:
 			if can_move_to(input_direction * Main.TILE_SIZE):
 				move_to(input_direction * Main.TILE_SIZE)
 	
-	if Input.is_action_pressed("drag_boulder"):
-		is_dragging_boulder = true
-	
-	if Input.is_action_just_released("drag_boulder"):
-		is_dragging_boulder = false
-		if dragged_boulder:
-			dragged_boulder.check_water_situation()
-			dragged_boulder.end_drag()
-		dragged_boulder = null
-	
 	if Input.is_action_just_pressed("mask_swap"):
 		if current_mask && inventory_mask:
 			swap_current_mask()
@@ -67,7 +57,6 @@ func _process(delta: float) -> void:
 				var mask = _can_pickup_mask()
 				if mask:
 					_pickup_mask(mask)
-				
 		else:
 			var mask = _can_pickup_mask()
 			if mask:
@@ -173,6 +162,7 @@ func _drop_current_mask() -> void:
 		mask_animator.wear_mask(current_mask)
 
 
+# is used for mask pickup and drop. interaction with buttons
 func check_for_triggers(query: PhysicsShapeQueryParameters2D, enter: bool) -> void:
 	var results: Array[Dictionary] = get_world_2d().direct_space_state.intersect_shape(query, 1000)
 	for result in results:
@@ -239,23 +229,12 @@ func can_move_to(movement: Vector2) -> bool:
 	var result: PhysicsTestMotionResult2D = PhysicsTestMotionResult2D.new()
 	var collided: bool = PhysicsServer2D.body_test_motion(get_rid(), params, result)
 	
-	if can_push_boulders:
-		return handle_boulder_push(movement, result, collided)
-
-	return !collided
-
-
-func handle_boulder_push(movement: Vector2, result: PhysicsTestMotionResult2D, collided: bool) -> bool:
 	var collider = result.get_collider()
-	if is_dragging_boulder and dragged_boulder:
-		var valid_movement: bool = dragged_boulder.can_move_to(movement) and not dragged_boulder.is_moving 
-		if valid_movement and not collided:
-			dragged_boulder.move_to(movement)
-			return false
-	elif collider is Boulder and is_dragging_boulder:
-		dragged_boulder = collider
-		dragged_boulder.start_drag()
-		return false
+	if collider is Boulder and can_push_boulders:
+		var boulder: Boulder = collider
+		if boulder.can_move_to(movement):
+			boulder.move_to(movement)
+	
 	return !collided
 
 

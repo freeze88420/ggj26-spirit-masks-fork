@@ -10,11 +10,13 @@ extends AnimatableBody2D
 var is_moving: bool = false
 var tween: Tween
 
-var water_pos: Vector2i;
 var is_in_water: bool = false
 
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
+	if is_moving:
+		return false
+	
 	var pos: Vector2 = global_position + movement
 
 	# If we have a tilemap, check if we are standing on a tile.
@@ -51,36 +53,28 @@ func move_to(movement: Vector2) -> void:
 	tween.finished.connect(_finish_moving)
 	position = Main.snap_to_tile_center(tilemap, target_pos)
 
-func start_drag() -> void:
-	set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, false)
-
-func end_drag() -> void:
-	if is_in_water == false:
-		set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, true)
-		
-func check_water_situation():
-	print("Checking water situation")
-	if tilemap != null:
-		var tile_pos: Vector2i = tilemap.local_to_map(position)
-		print(tile_pos)
-		var source_id: int = tilemap.get_cell_source_id(tile_pos)
-		var tiledata: TileData = tilemap.get_cell_tile_data(tile_pos)
-		if tiledata:
-			var type: String = tiledata.get_custom_data("type")
-			if type == "water":
-				tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
-				start_drag()
-				water_pos = tile_pos
-				is_in_water = true
-				position = Main.snap_to_tiles(position)
-			else:
-				is_in_water = false
-			print("This is the Type: ", tiledata.get_custom_data("type"))
-		else:
-			print("There's no tiledata")
-	else:
-		print("no tilemap")
-
 
 func _finish_moving():
 	is_moving = false
+	
+	if tilemap == null:
+		print("no tilemap for boulder to check")
+		return
+	
+	var tile_pos: Vector2i = tilemap.local_to_map(position)
+	print(tile_pos)
+	var source_id: int = tilemap.get_cell_source_id(tile_pos)
+	var tiledata: TileData = tilemap.get_cell_tile_data(tile_pos)
+	
+	if tiledata == null:
+		print("no tiledata for boulder to check")
+		return
+	
+	var type: String = tiledata.get_custom_data("type")
+	if type == "water":
+		tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
+		is_in_water = true
+		position = Main.snap_to_tiles(position)
+		set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, false)
+	
+	print("This is the Type: ", tiledata.get_custom_data("type"))
