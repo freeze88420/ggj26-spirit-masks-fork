@@ -12,7 +12,7 @@ func _ready() -> void:
 		button.connect(
 			"pressed",
 			func():
-				get_tree().change_scene_to_packed(levels[level].scene),
+				get_tree().change_scene_to_packed(level.scene),
 			0
 		)
 		$MarginContainer/GridContainer.add_child(button)
