@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkbhd33x46nf8"]
+[gd_scene load_steps=7 format=3 uid="uid://bkbhd33x46nf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2tjthcfxktqp" path="res://assets/portal.png" id="1_p8uh6"]
 [ext_resource type="Script" uid="uid://bjg8ci75jl1oy" path="res://world_objects/goal.gd" id="1_shdj2"]
@@ -6,7 +6,70 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_shdj2"]
 radius = 10.198039
 
+[sub_resource type="Animation" id="Animation_shdj2"]
+resource_name = "GoalIdle"
+length = 1.0000033
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.3666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pqbhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8y2p2"]
+_data = {
+&"GoalIdle": SubResource("Animation_shdj2"),
+&"RESET": SubResource("Animation_pqbhy")
+}
+
 [node name="Goal" type="Area2D"]
+scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("1_shdj2")
@@ -17,5 +80,11 @@ texture = ExtResource("1_p8uh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_shdj2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8y2p2")
+}
+autoplay = "GoalIdle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
