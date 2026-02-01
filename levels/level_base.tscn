@@ -12,6 +12,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jd1fy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cnvg6"]
+distance = -18.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p3adb"]
 
