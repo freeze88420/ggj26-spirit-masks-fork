@@ -58,11 +58,13 @@ sources = [NodePath("../AreaTrigger")]
 
 [node name="Sign" parent="WorldPlacedObjects" index="9" instance=ExtResource("10_efwds")]
 position = Vector2(272, 496)
-text = "Hmmm... looks like a pressure plate?!"
+text = "Hmmm...
+looks like a pressure plate?!"
 
 [node name="Sign2" parent="WorldPlacedObjects" index="10" instance=ExtResource("10_efwds")]
-position = Vector2(852, 786)
-text = "Maybe we can build a bridge using a boulder. "
+position = Vector2(848, 784)
+text = "Maybe we can build a bridge?
+Is there any stone around?
 
 [node name="Boulder12" parent="WorldPlacedObjects" index="11" instance=ExtResource("2_t3t4g")]
 position = Vector2(272, 400)
