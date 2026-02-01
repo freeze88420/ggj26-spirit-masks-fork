@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://bd22r54mjk5fs"]
 
 [ext_resource type="PackedScene" uid="uid://brykx73avx8aa" path="res://levels/level_base.tscn" id="1_vkd0v"]
-[ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="2_8l0e1"]
+[ext_resource type="PackedScene" uid="uid://dvf1lj8er6a3f" path="res://masks/fish_mask.tscn" id="2_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="3_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="4_ofchu"]
-[ext_resource type="PackedScene" uid="uid://5uft2nu2i33c" path="res://masks/mouse_mask.tscn" id="5_jq78i"]
+[ext_resource type="PackedScene" path="res://masks/mouse_mask.tscn" id="5_jq78i"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="6_lsnkt"]
 
 [node name="level_3" instance=ExtResource("1_vkd0v")]
@@ -37,22 +37,22 @@ layout_mode = 2
 text = "Back to Level Selection (ESC)"
 
 [node name="FishMask" parent="." index="6" instance=ExtResource("2_8l0e1")]
-position = Vector2(367, 181)
+position = Vector2(368, 176)
 
 [node name="EagleMask" parent="." index="7" instance=ExtResource("3_lfnxh")]
-position = Vector2(75, 339)
+position = Vector2(80, 336)
 
 [node name="BearMask" parent="." index="8" instance=ExtResource("4_ofchu")]
-position = Vector2(52, 215)
+position = Vector2(48, 208)
 
 [node name="MouseMask" parent="." index="9" instance=ExtResource("5_jq78i")]
-position = Vector2(236, 143)
+position = Vector2(240, 144)
 
 [node name="Boulder" parent="." index="10" instance=ExtResource("6_lsnkt")]
-position = Vector2(304, 238)
+position = Vector2(304, 240)
 
 [node name="Boulder2" parent="." index="11" instance=ExtResource("6_lsnkt")]
-position = Vector2(751, 497)
+position = Vector2(752, 496)
 
 [node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
 position = Vector2(80, 272)
