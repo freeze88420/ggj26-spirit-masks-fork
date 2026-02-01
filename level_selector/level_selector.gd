@@ -20,9 +20,9 @@ func _ready() -> void:
 				,
 			0
 		)
-		$MarginContainer/GridContainer.add_child(button)
+		$MarginContainer/MarginContainer2/CenterContainer/GridContainer.add_child(button)
 		index += 1
 	
-	var first_btn: Control = $MarginContainer/GridContainer.get_child(0)
+	var first_btn: Control = $MarginContainer/MarginContainer2/CenterContainer/GridContainer.get_child(0)
 	first_btn.grab_focus()
 	static_levels = levels

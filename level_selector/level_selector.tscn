@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b8op5fop570di" path="res://levels/level_1.tscn" id="3_8rcln"]
 [ext_resource type="PackedScene" uid="uid://ra5ae0xux7fj" path="res://levels/level_2_new.tscn" id="4_28gom"]
 [ext_resource type="PackedScene" uid="uid://bd22r54mjk5fs" path="res://levels/level_3.tscn" id="5_28gom"]
-[ext_resource type="PackedScene" uid="uid://ce3xhg1ckttyb" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
+[ext_resource type="PackedScene" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
 [ext_resource type="PackedScene" uid="uid://dgt3cdral5k7u" path="res://levels/level_4.tscn" id="6_cxlhq"]
 [ext_resource type="PackedScene" uid="uid://dwannankyldc8" path="res://levels/level_tutorial_obstacles.tscn" id="6_hggau"]
 [ext_resource type="PackedScene" uid="uid://b1ol8734mkfht" path="res://levels/level_5.tscn" id="7_cxlhq"]
 [ext_resource type="Texture2D" uid="uid://bgm32x8a2vvdc" path="res://wallpaper/levelWallPaperPixelResize.jpg" id="9_o0sms"]
-[ext_resource type="PackedScene" path="res://levels/level_6.tscn" id="11_j677p"]
+[ext_resource type="PackedScene" uid="uid://ddunte0v7wsvq" path="res://levels/level_6.tscn" id="11_j677p"]
 
 [sub_resource type="Resource" id="Resource_cxlhq"]
 script = ExtResource("2_ey3to")
@@ -77,13 +77,25 @@ offset_bottom = 448.0
 texture = ExtResource("9_o0sms")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 65.0
-offset_right = 289.0
+offset_left = 152.0
+offset_right = 344.0
 offset_bottom = 448.0
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.20784314, 0.20784314, 0.20784314, 0.23529412)
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 186.0
+offset_bottom = 448.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer2/CenterContainer"]
 layout_mode = 2
