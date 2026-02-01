@@ -1,14 +1,13 @@
+class_name AreaTrigger
 extends Area2D
 
 
-@export var target: Triggerable
+var is_triggered: bool = false
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if target != null:
-		target.emit_signal("activated")
+	is_triggered = true
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if target != null:
-		target.emit_signal("deactivated")
+	is_triggered = false

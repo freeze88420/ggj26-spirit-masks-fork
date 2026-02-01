@@ -15,13 +15,5 @@ func set_unlocked(state: bool) -> void:
 	$Sprite2D.texture = unlocked_texture if state else locked_texture
 
 
-func _on_activated() -> void:
-	set_unlocked(true)
-
-
-func _on_deactivated() -> void:
-	set_unlocked(false)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("enter: ", body)
+func _process(delta: float) -> void:
+	set_unlocked(is_triggered())
