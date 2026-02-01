@@ -89,6 +89,10 @@ layout_mode = 2
 text = "LEVEL COMPLETE!"
 horizontal_alignment = 1
 
+[node name="Button2" type="Button" parent="CanvasLayer/LevelCompleteOverlay/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Next Level (ENTER)"
+
 [node name="Button" type="Button" parent="CanvasLayer/LevelCompleteOverlay/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back to Level Selection (ESC)"
@@ -104,4 +108,5 @@ position = Vector2(16, 16)
 position = Vector2(16, 16)
 tilemap = NodePath("../../Ground")
 
+[connection signal="pressed" from="CanvasLayer/LevelCompleteOverlay/CenterContainer/VBoxContainer/Button2" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelCompleteOverlay/CenterContainer/VBoxContainer/Button" to="." method="exit_to_level_selector"]

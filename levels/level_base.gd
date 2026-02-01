@@ -26,6 +26,9 @@ func _process(delta: float) -> void:
 	if restart_timer > Main.RESTART_DELAY:
 		get_tree().reload_current_scene()
 
+	if Input.is_key_pressed(Key.KEY_ENTER) and complete:
+		_on_next_level_pressed()
+
 	if Input.is_action_pressed("back_action"):
 		if complete: # instantly exit if level is already completed
 			exit_to_level_selector()
@@ -46,3 +49,12 @@ func _on_goal_completed() -> void:
 
 func exit_to_level_selector() -> void:
 	get_tree().change_scene_to_packed(load("res://level_selector/level_selector.tscn"))
+
+
+func _on_next_level_pressed() -> void:
+	var next_level_index = Main.current_level_index + 1
+	if next_level_index >= LevelSelector.static_levels.size():
+		exit_to_level_selector()
+	else:
+		Main.current_level_index += 1
+		get_tree().change_scene_to_packed(LevelSelector.static_levels[next_level_index].scene)

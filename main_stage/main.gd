@@ -16,6 +16,9 @@ const RESTART_DELAY: float = 0.4 # seconds
 const EXIT_DELAY: float = 0.4 # seconds
 
 
+static var current_level_index: int
+
+
 static func snap_to_tiles(pos: Vector2) -> Vector2:
 	pos += Vector2.ONE * Main.TILE_SIZE /2
 	return pos.snapped(Vector2.ONE * Main.TILE_SIZE) - Vector2.ONE * Main.TILE_SIZE / 2

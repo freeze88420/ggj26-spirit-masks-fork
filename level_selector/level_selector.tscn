@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b8op5fop570di" path="res://levels/level_1.tscn" id="3_8rcln"]
 [ext_resource type="PackedScene" uid="uid://ra5ae0xux7fj" path="res://levels/level_2_new.tscn" id="4_28gom"]
 [ext_resource type="PackedScene" uid="uid://bd22r54mjk5fs" path="res://levels/level_3.tscn" id="5_28gom"]
-[ext_resource type="PackedScene" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
+[ext_resource type="PackedScene" uid="uid://ce3xhg1ckttyb" path="res://levels/level_tutorial_masks_.tscn" id="5_ncxc5"]
 [ext_resource type="PackedScene" uid="uid://dgt3cdral5k7u" path="res://levels/level_4.tscn" id="6_cxlhq"]
 [ext_resource type="PackedScene" uid="uid://dwannankyldc8" path="res://levels/level_tutorial_obstacles.tscn" id="6_hggau"]
 [ext_resource type="PackedScene" uid="uid://b1ol8734mkfht" path="res://levels/level_5.tscn" id="7_cxlhq"]
 [ext_resource type="Texture2D" uid="uid://bgm32x8a2vvdc" path="res://wallpaper/levelWallPaperPixelResize.jpg" id="9_o0sms"]
-[ext_resource type="PackedScene" uid="uid://ddunte0v7wsvq" path="res://levels/level_6.tscn" id="11_j677p"]
+[ext_resource type="PackedScene" path="res://levels/level_6.tscn" id="11_j677p"]
 
 [sub_resource type="Resource" id="Resource_cxlhq"]
 script = ExtResource("2_ey3to")
