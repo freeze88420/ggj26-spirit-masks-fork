@@ -12,6 +12,7 @@ extends AnimatableBody2D
 var is_moving: bool = false
 var tween: Tween
 
+var water_pos: Vector2i;
 
 # copied over from player script
 func can_move_to(movement: Vector2) -> bool:
@@ -46,8 +47,9 @@ func move_to(movement: Vector2) -> void:
 			var type: String = tiledata.get_custom_data("type")
 			if type == "water":
 				pass
-				#tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
-				#start_drag()
+				tilemap.set_cell(tile_pos, source_id, Vector2i(5, 0))
+				start_drag()
+				water_pos = tile_pos
 			print(tiledata.get_custom_data("type"))
 	else:
 		print("no tilemap")
@@ -65,13 +67,14 @@ func move_to(movement: Vector2) -> void:
 	tween.set_trans(tween_transition)
 	tween.set_ease(tween_ease)
 	tween.finished.connect(_finish_moving)
-	position = Main.snap_to_tiles(position)
+	position = Main.snap_to_tiles(target_pos)
 
 func start_drag() -> void:
 	set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, false)
 
 func end_drag() -> void:
-	set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, true)
+	if water_pos == null:
+		set_collision_layer_value(Main.COLLISION_LAYER_BOULDER, true)
 	
 
 
