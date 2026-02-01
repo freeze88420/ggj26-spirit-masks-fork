@@ -16,7 +16,3 @@ func _ready() -> void:
 			0
 		)
 		$MarginContainer/GridContainer.add_child(button)
-
-
-func _on_level_1_button_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://main_stage/main_stage.tscn"))
