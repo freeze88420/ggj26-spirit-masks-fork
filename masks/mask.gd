@@ -6,10 +6,18 @@ extends Node2D
 @onready var sfx: AudioStreamPlayer2D = $SfxPlayer
 @export var pickup_sfx: AudioStream
 
+@onready var power_distance: int = 15
+@onready var power_area = $PowerArea
+
 @onready var treesNStuff: TileMapLayer = get_tree().current_scene.get_node("TreesAndStuff")
 
 var player: Player
 
+func _process(delta: float) -> void:
+	if player:
+		var input_direction: Vector2 = player.get_input_direction()
+		if input_direction != Vector2.ZERO:
+			power_area.position = input_direction * power_distance
 
 func activate_ability() -> void:
 	_activate_ability()

@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://do5nl1ckjogqi"]
+
+[ext_resource type="PackedScene" uid="uid://berjkuxabievu" path="res://world_objects/obstacle.tscn" id="1_w2txk"]
+[ext_resource type="Script" uid="uid://it2flmp5lcx4" path="res://world_objects/tree.gd" id="2_orrlm"]
+[ext_resource type="Texture2D" uid="uid://8xj27uxq2kiq" path="res://assets/trees/tree2_big.png" id="3_3vtu5"]
+[ext_resource type="PackedScene" uid="uid://blk3jx7una8rt" path="res://world_objects/flammable.tscn" id="4_p7fo2"]
+[ext_resource type="Script" uid="uid://bga5nhdgxq1yv" path="res://world_objects/flammable_tree.gd" id="5_gjoof"]
+
+[node name="Tree" instance=ExtResource("1_w2txk")]
+collision_layer = 32
+script = ExtResource("2_orrlm")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_3vtu5")
+
+[node name="Flammable2" parent="." index="2" instance=ExtResource("4_p7fo2")]
+collision_layer = 1023
+script = ExtResource("5_gjoof")
+
+[editable path="Flammable2"]

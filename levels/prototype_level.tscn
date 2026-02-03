@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://d3d6d8nujsjnk"]
+[gd_scene load_steps=12 format=4 uid="uid://d3d6d8nujsjnk"]
 
 [ext_resource type="PackedScene" uid="uid://brykx73avx8aa" path="res://levels/level_base.tscn" id="1_pvbb1"]
 [ext_resource type="PackedScene" uid="uid://cdeowxut7owbo" path="res://masks/bear_mask.tscn" id="2_0bul0"]
+[ext_resource type="PackedScene" uid="uid://do5nl1ckjogqi" path="res://world_objects/tree.tscn" id="2_1wlit"]
 [ext_resource type="PackedScene" uid="uid://casmchdhp3041" path="res://masks/eagle_mask.tscn" id="3_rl8gb"]
 [ext_resource type="PackedScene" uid="uid://cs6thwkrb2m66" path="res://masks/fish_mask.tscn" id="4_3sjje"]
 [ext_resource type="PackedScene" uid="uid://dja35qex5xp04" path="res://world_objects/boulder.tscn" id="5_1wlit"]
@@ -17,21 +18,33 @@
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAIAAAAAAAMAAAABAAIAAAAAAAQAAAABAAIAAAAAAAUAAAABAAIAAAAAAAYAAAABAAIAAAAAAAcAAAABAAIAAAAAAAgAAAABAAIAAAAAAAkAAAABAAIAAAAAAAoAAAABAAIAAAABAAAAAAABAAIAAAABAAEAAAADAAIAAAABAAIAAAADAAIAAAABAAMAAAABAAIAAAABAAQAAAABAAIAAAABAAUAAAABAAIAAAABAAYAAAABAAIAAAABAAcAAAABAAIAAAABAAgAAAABAAIAAAABAAkAAAABAAIAAAABAAoAAAABAAIAAAACAAAAAAABAAIAAAACAAEAAAADAAIAAAACAAIAAAADAAIAAAACAAMAAAABAAIAAAACAAQAAAABAAIAAAACAAUAAAABAAIAAAACAAYAAAABAAIAAAACAAcAAAABAAIAAAACAAgAAAABAAIAAAACAAkAAAABAAIAAAACAAoAAAABAAIAAAADAAAAAAABAAIAAAADAAEAAAADAAIAAAADAAIAAAADAAIAAAADAAMAAAABAAIAAAADAAQAAAABAAIAAAADAAUAAAABAAIAAAADAAYAAAABAAIAAAADAAcAAAABAAIAAAADAAgAAAABAAIAAAADAAkAAAABAAIAAAADAAoAAAABAAIAAAAEAAAAAAABAAIAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAAEAAMAAAABAAIAAAAEAAQAAAABAAIAAAAEAAUAAAABAAIAAAAEAAYAAAABAAIAAAAEAAcAAAABAAIAAAAEAAgAAAABAAIAAAAEAAkAAAABAAIAAAAEAAoAAAABAAIAAAAFAAAAAAABAAIAAAAFAAEAAAABAAIAAAAFAAIAAAABAAIAAAAFAAMAAAABAAIAAAAFAAQAAAABAAIAAAAFAAUAAAABAAIAAAAFAAYAAAABAAIAAAAFAAcAAAABAAIAAAAFAAgAAAABAAIAAAAFAAkAAAABAAIAAAAFAAoAAAABAAIAAAAGAAAAAAABAAIAAAAGAAEAAAABAAIAAAAGAAIAAAABAAIAAAAGAAMAAAABAAIAAAAGAAQAAAABAAIAAAAGAAUAAAABAAIAAAAGAAYAAAABAAIAAAAGAAcAAAABAAIAAAAGAAgAAAABAAIAAAAGAAkAAAABAAIAAAAGAAoAAAABAAIAAAAHAAAAAAABAAIAAAAHAAEAAAACAAMAAAAHAAIAAAACAAMAAAAHAAMAAAACAAMAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAABAAIAAAAHAAcAAAABAAIAAAAHAAgAAAABAAIAAAAHAAkAAAABAAIAAAAHAAoAAAABAAIAAAAIAAAAAAABAAIAAAAIAAEAAAABAAIAAAAIAAIAAAABAAIAAAAIAAMAAAABAAIAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAABAAIAAAAIAAcAAAABAAIAAAAIAAgAAAABAAIAAAAIAAkAAAABAAIAAAAIAAoAAAABAAIAAAAJAAAAAAABAAIAAAAJAAEAAAABAAIAAAAJAAIAAAABAAIAAAAJAAMAAAABAAIAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAABAAIAAAAJAAcAAAABAAIAAAAJAAgAAAABAAIAAAAJAAkAAAABAAIAAAAJAAoAAAABAAIAAAAKAAAAAAABAAIAAAAKAAEAAAABAAIAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAABAAIAAAAKAAgAAAABAAIAAAAKAAkAAAABAAIAAAAKAAoAAAABAAIAAAALAAAAAAABAAIAAAALAAEAAAABAAIAAAALAAIAAAABAAIAAAALAAMAAAABAAIAAAALAAQAAAABAAIAAAALAAUAAAAAAAEAAAALAAYAAAABAAIAAAALAAcAAAABAAIAAAALAAgAAAABAAIAAAALAAkAAAABAAIAAAALAAoAAAABAAIAAAAMAAAAAAABAAIAAAAMAAEAAAABAAIAAAAMAAIAAAABAAIAAAAMAAMAAAABAAIAAAAMAAQAAAABAAIAAAAMAAUAAAAAAAEAAAAMAAYAAAABAAIAAAAMAAcAAAABAAIAAAAMAAgAAAABAAIAAAAMAAkAAAABAAIAAAAMAAoAAAABAAIAAAANAAAAAAABAAIAAAANAAEAAAABAAIAAAANAAIAAAABAAIAAAANAAMAAAABAAIAAAANAAQAAAABAAIAAAANAAUAAAAAAAEAAAANAAYAAAAAAAEAAAANAAcAAAABAAIAAAANAAgAAAABAAIAAAANAAkAAAABAAIAAAANAAoAAAABAAIAAAAOAAAAAAABAAIAAAAOAAEAAAABAAIAAAAOAAIAAAABAAIAAAAOAAMAAAABAAIAAAAOAAQAAAABAAIAAAAOAAUAAAABAAIAAAAOAAYAAAABAAIAAAAOAAcAAAABAAIAAAAOAAgAAAABAAIAAAAOAAkAAAABAAIAAAAOAAoAAAABAAIAAAAPAAAAAAABAAIAAAAPAAEAAAABAAIAAAAPAAIAAAABAAIAAAAPAAMAAAABAAIAAAAPAAQAAAABAAIAAAAPAAUAAAABAAIAAAAPAAYAAAAAAAEAAAAPAAcAAAABAAIAAAAPAAgAAAAAAAEAAAAPAAkAAAABAAIAAAAPAAoAAAABAAIAAAAQAAAAAAABAAIAAAAQAAEAAAABAAIAAAAQAAIAAAABAAIAAAAQAAMAAAABAAIAAAAQAAQAAAABAAIAAAAQAAUAAAABAAIAAAAQAAYAAAAAAAEAAAAQAAcAAAABAAIAAAAQAAgAAAAAAAEAAAAQAAkAAAAAAAEAAAAQAAoAAAAAAAEAAAARAAAAAAABAAIAAAARAAEAAAABAAIAAAARAAIAAAABAAIAAAARAAMAAAABAAIAAAARAAQAAAABAAIAAAARAAUAAAABAAIAAAARAAYAAAAAAAEAAAARAAcAAAABAAIAAAARAAgAAAABAAIAAAARAAkAAAABAAIAAAARAAoAAAABAAIAAAASAAAAAAABAAIAAAASAAEAAAABAAIAAAASAAIAAAABAAIAAAASAAMAAAABAAIAAAASAAQAAAABAAIAAAASAAUAAAABAAIAAAASAAYAAAAAAAEAAAASAAcAAAABAAIAAAASAAgAAAABAAIAAAASAAkAAAABAAIAAAASAAoAAAABAAIAAAATAAAAAAABAAIAAAATAAEAAAABAAIAAAATAAIAAAABAAIAAAATAAMAAAABAAIAAAATAAQAAAABAAIAAAATAAUAAAABAAIAAAATAAYAAAAAAAEAAAATAAcAAAABAAIAAAATAAgAAAABAAIAAAATAAkAAAABAAIAAAATAAoAAAABAAIAAAA=")
 
 [node name="TreesAndStuff" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAIAAgABQAEAAAAAAAIAAkABQAEAAEAAAAJAAgABQAFAAAAAAAJAAkABQAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAAIAAgABQAEAAAAAAAIAAkABQAEAAEAAAAJAAgABQAFAAAAAAAJAAkABQAFAAEAAAAKAAgABQAEAAAAAAAKAAkABQAEAAEAAAALAAgABQAFAAAAAAALAAkABQAFAAEAAAA=")
 
 [node name="FollowingCamera" parent="." index="2"]
 position = Vector2(16, 16)
 
-[node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="0"]
+[node name="Tree" parent="WorldPlacedObjects" index="0" instance=ExtResource("2_1wlit")]
+position = Vector2(144, 272)
+move_duration = null
+tween_transition = null
+tween_ease = null
+
+[node name="Tree2" parent="WorldPlacedObjects" index="1" instance=ExtResource("2_1wlit")]
+position = Vector2(208, 272)
+move_duration = null
+tween_transition = null
+tween_ease = null
+
+[node name="PlayerSpawnPoint" parent="WorldPlacedObjects" index="2"]
 position = Vector2(48, 208)
 
-[node name="Player" parent="WorldPlacedObjects" index="1"]
+[node name="Player" parent="WorldPlacedObjects" index="3"]
 position = Vector2(48, 208)
 
-[node name="BearMask" parent="WorldPlacedObjects" index="2" instance=ExtResource("2_0bul0")]
+[node name="BearMask" parent="WorldPlacedObjects" index="4" instance=ExtResource("2_0bul0")]
 position = Vector2(144, 176)
 
-[node name="MovementTutorial" type="Label" parent="WorldPlacedObjects" index="3"]
+[node name="MovementTutorial" type="Label" parent="WorldPlacedObjects" index="5"]
 offset_left = 464.0
 offset_top = 16.0
 offset_right = 620.0
@@ -42,52 +55,55 @@ F to swap masks
 TAB (hold) to restart
 ESC (hold) to exit"
 
-[node name="EagleMask" parent="WorldPlacedObjects" index="4" instance=ExtResource("3_rl8gb")]
-position = Vector2(240, 240)
+[node name="EagleMask" parent="WorldPlacedObjects" index="6" instance=ExtResource("3_rl8gb")]
+position = Vector2(48, 240)
 
-[node name="FishMask" parent="WorldPlacedObjects" index="5" instance=ExtResource("4_3sjje")]
+[node name="FishMask" parent="WorldPlacedObjects" index="7" instance=ExtResource("4_3sjje")]
 position = Vector2(48, 112)
 
-[node name="Boulder" parent="WorldPlacedObjects" index="6" instance=ExtResource("5_1wlit")]
+[node name="Boulder" parent="WorldPlacedObjects" index="8" instance=ExtResource("5_1wlit")]
 position = Vector2(144, 208)
 
-[node name="Sign" parent="WorldPlacedObjects" index="7" instance=ExtResource("6_mfg5r")]
+[node name="Sign" parent="WorldPlacedObjects" index="9" instance=ExtResource("6_mfg5r")]
 position = Vector2(112, 304)
 text = "Hey!
 Listen..."
 
-[node name="MouseMask" parent="WorldPlacedObjects" index="8" instance=ExtResource("7_r7pgf")]
+[node name="MouseMask" parent="WorldPlacedObjects" index="10" instance=ExtResource("7_r7pgf")]
 position = Vector2(208, 80)
 
-[node name="Goal" parent="WorldPlacedObjects" index="9" instance=ExtResource("8_0bul0")]
+[node name="Goal" parent="WorldPlacedObjects" index="11" instance=ExtResource("8_0bul0")]
 position = Vector2(560, 304)
 
-[node name="Door" parent="WorldPlacedObjects" index="10" node_paths=PackedStringArray("sources") instance=ExtResource("9_mfg5r")]
+[node name="Door" parent="WorldPlacedObjects" index="12" node_paths=PackedStringArray("sources") instance=ExtResource("9_mfg5r")]
 position = Vector2(496, 240)
 sources = [NodePath("../AreaTrigger2"), NodePath("../AreaTrigger")]
 
-[node name="AreaTrigger" parent="WorldPlacedObjects" index="11" instance=ExtResource("12_fb634")]
+[node name="AreaTrigger" parent="WorldPlacedObjects" index="13" instance=ExtResource("12_fb634")]
 position = Vector2(496, 336)
 
-[node name="AreaTrigger2" parent="WorldPlacedObjects" index="12" instance=ExtResource("12_fb634")]
+[node name="AreaTrigger2" parent="WorldPlacedObjects" index="14" instance=ExtResource("12_fb634")]
 position = Vector2(496, 304)
 
-[node name="AreaTrigger3" parent="WorldPlacedObjects" index="13" instance=ExtResource("12_fb634")]
+[node name="AreaTrigger3" parent="WorldPlacedObjects" index="15" instance=ExtResource("12_fb634")]
 position = Vector2(368, 208)
 collision_mask = 328
 
-[node name="AreaTrigger4" parent="WorldPlacedObjects" index="14" instance=ExtResource("12_fb634")]
+[node name="AreaTrigger4" parent="WorldPlacedObjects" index="16" instance=ExtResource("12_fb634")]
 position = Vector2(400, 208)
 
-[node name="Door2" parent="WorldPlacedObjects" index="15" node_paths=PackedStringArray("sources") instance=ExtResource("9_mfg5r")]
+[node name="Door2" parent="WorldPlacedObjects" index="17" node_paths=PackedStringArray("sources") instance=ExtResource("9_mfg5r")]
 position = Vector2(464, 208)
 sources = [NodePath("../AreaTrigger3"), NodePath("../AreaTrigger4")]
 require_all_sources_triggered = false
 
-[node name="Boulder5" parent="WorldPlacedObjects" index="16" instance=ExtResource("5_1wlit")]
+[node name="Boulder5" parent="WorldPlacedObjects" index="18" instance=ExtResource("5_1wlit")]
 position = Vector2(464, 336)
 
-[node name="Boulder4" parent="WorldPlacedObjects" index="17" instance=ExtResource("5_1wlit")]
+[node name="Boulder4" parent="WorldPlacedObjects" index="19" instance=ExtResource("5_1wlit")]
 position = Vector2(464, 304)
 
 [connection signal="completed" from="WorldPlacedObjects/Goal" to="." method="_on_goal_completed"]
+
+[editable path="WorldPlacedObjects/Tree"]
+[editable path="WorldPlacedObjects/Tree/Flammable"]

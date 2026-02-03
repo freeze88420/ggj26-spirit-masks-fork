@@ -104,6 +104,7 @@ special_power={
 2d_physics/layer_7="player"
 2d_physics/layer_8="camera_bounds"
 2d_physics/layer_9="trigger"
+2d_physics/layer_10="fire"
 
 [rendering]
 

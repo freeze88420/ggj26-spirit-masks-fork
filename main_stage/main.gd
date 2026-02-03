@@ -11,6 +11,7 @@ const COLLISION_LAYER_BOULDER: int = 4
 const COLLISION_LAYER_CHASM: int = 5
 const COLLISION_LAYER_HEDGE: int = 6
 const COLLISION_LAYER_TRIGGER: int = 9
+const COLLISION_LAYER_FIRE: int = 10
 
 const RESTART_DELAY: float = 0.4 # seconds
 const EXIT_DELAY: float = 0.4 # seconds
