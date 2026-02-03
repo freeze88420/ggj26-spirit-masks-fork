@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://casmchdhp3041"]
+[gd_scene load_steps=5 format=3 uid="uid://casmchdhp3041"]
 
 [ext_resource type="PackedScene" uid="uid://cvdt7mq52s854" path="res://masks/mask.tscn" id="1_8owme"]
 [ext_resource type="Texture2D" uid="uid://bdtgf0u1qk4jp" path="res://assets/eagle_stolen_downsized.png" id="2_sc5kk"]
 [ext_resource type="Script" uid="uid://cot3xt5ktfqam" path="res://masks/eagle_mask.gd" id="2_ydl3h"]
+[ext_resource type="Texture2D" uid="uid://8wri0db28uxx" path="res://assets/fire1.png" id="4_ydl3h"]
 
 [node name="EagleMask" instance=ExtResource("1_8owme")]
 script = ExtResource("2_ydl3h")
@@ -11,6 +12,7 @@ script = ExtResource("2_ydl3h")
 texture_filter = 1
 texture = ExtResource("2_sc5kk")
 
-[node name="PowerArea" parent="." index="3"]
-collision_layer = 1023
-collision_mask = 1023
+[node name="Sprite2D" parent="PowerArea" index="1"]
+visible = false
+scale = Vector2(0.40625, 0.375)
+texture = ExtResource("4_ydl3h")
