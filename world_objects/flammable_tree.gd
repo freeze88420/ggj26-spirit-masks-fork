@@ -14,3 +14,4 @@ func _burn() -> void:
 func _finish_burn() -> void:
 	is_burning = false
 	tree.sprite.texture = tree.burnt_texture
+	tree.set_collision_layer_value(Main.COLLISION_LAYER_HEDGE, false)
